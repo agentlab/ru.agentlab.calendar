@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>ru.agentlab.calendar</groupId>
+	<artifactId>ru.agentlab.calendar.releng</artifactId>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>ru.ntcpower.maia</groupId>
+		<artifactId>ru.ntcpower.maia.parent</artifactId>
+		<relativePath>../../../maia-parent/ru.ntcpower.maia.parent/pom.xml</relativePath>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<modules>
+		<module>../ru.agentlab.calendar.target</module>
+		
+		<module>../../plugins/ru.agentlab.calendar.service</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>ru.agentlab.calendar</groupId>
+							<artifactId>ru.agentlab.calendar.target</artifactId>
+							<version>1.0.0-SNAPSHOT</version>
+						</artifact>
+					</target>
+				</configuration>
+			</plugin>		
+		</plugins>
+	</build>
+	
+</project>
