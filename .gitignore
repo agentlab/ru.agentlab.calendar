@@ -1,12 +1,37 @@
-*.class
+# Dirs With Binaries #
+bin
+lib
+target
+xtend-gen
+classes
+temp
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# Binary Files #
+*.class
+*.dll
+*.lib
+*.exe
+*.obj
 
 # Package Files #
 *.jar
 *.war
 *.ear
+*.zip
+*.rar
+*.7z
+*.tar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# Temporary Files #
+*.bak
+
+# Data Files #
+*.dat
+*.idn
+
+# Agent Platform #
+APDescription.txt
+MTPs-Main-Container.txt
+
+# Protege #
+catalog-v001.xml
