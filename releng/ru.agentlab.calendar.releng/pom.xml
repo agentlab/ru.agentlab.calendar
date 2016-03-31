@@ -3,7 +3,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>ru.agentlab.calendar</groupId>
 	<artifactId>ru.agentlab.calendar.releng</artifactId>
 	<packaging>pom</packaging>
 
@@ -17,7 +16,9 @@
 	<modules>
 		<module>../ru.agentlab.calendar.target</module>
 		
-		<module>../../plugins/ru.agentlab.calendar.service</module>
+		<module>../../plugins/ru.agentlab.calendar.service.api</module>
+		<module>../../plugins/ru.agentlab.calendar.service.google</module>
+		<module>../../plugins/ru.agentlab.calendar.consumer</module>
 	</modules>
 
 	<build>

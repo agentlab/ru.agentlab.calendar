@@ -12,7 +12,6 @@
 	<properties>
 		<tycho-version>0.24.0</tycho-version>
 		<tycho-extras-version>0.24.0</tycho-extras-version>
-		<xtend-version>2.9.0</xtend-version>
 		<platform-version>[4.4,4.5)</platform-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<doc.output.folder>${project.build.directory}/gen-doc/</doc.output.folder>
@@ -35,10 +34,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.eclipse.xtend</groupId>
-				<artifactId>xtend-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 
@@ -89,9 +84,6 @@
 					<version>${tycho-version}</version>
 					<configuration>
 						<useProjectSettings>true</useProjectSettings>
-						<excludeResources>
-							<excludeResource>**/*.xtend</excludeResource>
-						</excludeResources>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -197,31 +189,7 @@
 									<fileset>
 										<directory>${basedir}/target/generated-sources/</directory>
 									</fileset>
-									<fileset>
-										<directory>${basedir}/xtend-gen/</directory>
-									</fileset>
 								</filesets>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.xtend</groupId>
-					<artifactId>xtend-maven-plugin</artifactId>
-					<version>${xtend-version}</version>
-					<executions>
-						<execution>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>compile</goal>
-								<goal>xtend-install-debug-info</goal>
-								<goal>testCompile</goal>
-								<goal>xtend-test-install-debug-info</goal>
-							</goals>
-							<configuration>
-								<writeTraceFiles>false</writeTraceFiles>
-								<outputDirectory>${basedir}/xtend-gen</outputDirectory>
-								<testOutputDirectory>${basedir}/xtend-gen</testOutputDirectory>
 							</configuration>
 						</execution>
 					</executions>
@@ -314,42 +282,6 @@
 						</execution>
 					</executions>
 				</plugin>
-				<plugin>
-					<groupId>org.okkam.owl</groupId>
-					<artifactId>jaob-maven-plugin</artifactId>
-					<version>1.0</version>
-					<executions>
-						<execution>
-							<goals>
-								<goal>owl2java</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
- 				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.okkam.owl</groupId>
-										<artifactId>jaob-maven-plugin</artifactId>
-										<versionRange>[1.0,)</versionRange>
-										<goals>
-											<goal>owl2java</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<execute />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -375,10 +307,6 @@
 	</pluginRepositories>
 	
 	<repositories>
-		<repository>
-			<id>xtend</id>
-			<url>http://build.eclipse.org/common/xtend/maven/</url>
-		</repository>
 		<repository>
 		  <id>mvnrepository</id>
 		  <name>mvnrepository</name>

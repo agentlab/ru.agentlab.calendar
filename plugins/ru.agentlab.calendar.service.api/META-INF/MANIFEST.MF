@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Calendar Service API
+Bundle-SymbolicName: ru.agentlab.calendar.service.api;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: AgentLab
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: ru.agentlab.calendar.service.api
