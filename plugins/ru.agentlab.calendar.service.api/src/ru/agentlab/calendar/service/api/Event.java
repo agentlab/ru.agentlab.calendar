@@ -7,6 +7,6 @@ public class Event {
 	public String calendar;
 	public String description;
 	
-	Date startDate;
-	Date endDate;
+	public Date startDate;
+	public Date endDate;
 }
