@@ -8,9 +8,9 @@
 
 	<parent>
 		<groupId>ru.agentlab.calendar</groupId>
-		<artifactId>ru.agentlab.calendar.plugins</artifactId>
+		<artifactId>ru.agentlab.calendar.releng</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../../releng/ru.agentlab.calendar.releng/pom.xml</relativePath>
 	</parent>
 	
 	<dependencies>
@@ -20,10 +20,13 @@
 			<version>v3-rev173-1.21.0</version>
 		</dependency>
 	</dependencies>
-
+	
 	<build>
 		<plugins>
-			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 </project>
