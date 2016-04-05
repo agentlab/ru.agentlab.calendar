@@ -10,9 +10,9 @@
     xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
     xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
-    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 index:/models/Mylyn.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/mylyn/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Mylyn.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore"
     name="ru.agentlab.calendar.setup"
-    label="Calendar Root">
+    label="GoogleCalendar">
   <setupTask
       xsi:type="setup:CompoundTask"
       name="Eclipse Installation">
@@ -46,7 +46,7 @@
       <repository
           url="http://download.eclipse.org/eclipse/updates/4.5"/>
       <repository
-          url="http://download.eclipse.org/technology/epp/packages/mars/R"/>
+          url="http://download.eclipse.org/releases/mars/"/>
       <repository
           url="http://agentlab.ru/eclipse/update/ch.qos.logback.beagle/1.1.4.201411292018"/>
       <repository
@@ -115,6 +115,10 @@
       <requirement
           name="org.eclipse.egit.mylyn.feature.group"/>
       <requirement
+          name="org.eclipse.mylyn_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.context_feature.feature.group"/>
+      <requirement
           name="org.eclipse.mylyn.ide_feature.feature.group"/>
       <requirement
           name="org.eclipse.mylyn.java_feature.feature.group"/>
@@ -125,9 +129,7 @@
       <requirement
           name="org.eclipse.mylyn.gerrit.feature.feature.group"/>
       <requirement
-          name="org.eclipse.mylyn_feature.feature.group"/>
-      <requirement
-          name="org.eclipse.mylyn.bugzilla_feature.feature.group"/>
+          name="org.eclipse.mylyn.gerrit.dashboard.feature.feature.group"/>
       <requirement
           name="org.eclipse.mylyn.git.feature.group"/>
       <requirement
@@ -136,6 +138,8 @@
           name="org.eclipse.mylyn.hudson.feature.group"/>
       <requirement
           name="org.eclipse.mylyn.wikitext_feature.feature.group"/>
+      <requirement
+          name="org.eclipse.mylyn.github.feature.feature.group"/>
       <repository
           url="http://ianbrandt.github.io/m2e-maven-dependency-plugin/"/>
       <repository
@@ -146,6 +150,10 @@
           url="https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-buildhelper/0.15.0/N/0.15.0.201405280027/"/>
       <repository
           url="https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-mavenarchiver/0.17.0/N/LATEST/"/>
+      <repository
+          url="http://download.eclipse.org/releases/mars/"/>
+      <repository
+          url="http://download.eclipse.org/egit/github/updates-nightly"/>
     </setupTask>
     <setupTask
         xsi:type="mylyn:MylynQueriesTask"
@@ -220,6 +228,22 @@
           xsi:type="setup:PreferenceTask"
           key="/instance/org.eclipse.ui.ide/SAVE_ALL_BEFORE_BUILD"
           value="true"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ui.ide/IMPORT_FILES_AND_FOLDERS_MODE"
+          value="prompt"/>
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.ui.ide/IMPORT_FILES_AND_FOLDERS_VIRTUAL_FOLDER_MODE"
+          value="prompt"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.mylyn.team.ui">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.mylyn.team.ui/org.eclipse.mylyn.team.commit.template"
+          value="$${task.key}: $${task.description}&#xD;&#xA;&#xD;&#xA;Task-Url: $${task.url}"/>
     </setupTask>
   </setupTask>
   <setupTask
@@ -242,6 +266,21 @@
         value="${@id.location}"
         label="Located in the specified absolute folder location"/>
     <description>Several git repositories location will be cloned inside this directory</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      id="githubuserid"
+      name="github.user.id"
+      label="Логин GitHub для задач ( НЕ e-mail !!! )">
+    <description>Логин GitHub ( НЕ e-mail !!! )</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      id="githubpassword"
+      type="PASSWORD"
+      name="github.user.password"
+      label="Пароль GitHub для задач">
+    <description>Github User Password</description>
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
@@ -385,6 +424,48 @@
             url="http://agentlab.ru/eclipse/update/com.google.guava/18.0.0.201502021635"/>
       </repositoryList>
     </targlet>
+  </setupTask>
+  <setupTask
+      xsi:type="projects:ProjectsBuildTask"
+      id="InitialBuild"
+      refresh="true">
+    <description>Initial Build</description>
+  </setupTask>
+  <setupTask
+      xsi:type="mylyn:MylynQueriesTask"
+      connectorKind="github"
+      repositoryURL="https://github.com/agentlab/ru.agentlab.calendar"
+      userID="${github.user.id}"
+      password="${github.user.password}">
+    <query summary="${scope.project.label} Мои открытые задачи">
+      <attribute
+          key="state"
+          value="open::"/>
+      <attribute
+          key="assignee"
+          value="${github.user.id}"/>
+    </query>
+    <query summary="${scope.project.label} Мои закрытые задачи"
+        url="">
+      <attribute
+          key="state"
+          value="closed::"/>
+      <attribute
+          key="assignee"
+          value="${github.user.id}"/>
+    </query>
+    <query summary="${scope.project.label} Нераспределенные открытые задачи"
+        url="">
+      <attribute
+          key="state"
+          value="open::"/>
+    </query>
+    <query summary="${scope.project.label} Все закрытые задачи"
+        url="">
+      <attribute
+          key="state"
+          value="closed::"/>
+    </query>
   </setupTask>
   <stream name="master"/>
   <logicalProjectContainer
