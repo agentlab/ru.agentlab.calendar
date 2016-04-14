@@ -8,4 +8,11 @@
 	</buildSpec>
 	<natures>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>user.setup</name>
+			<type>1</type>
+			<location>C:/Users/amivanoff/.eclipse/org.eclipse.oomph.setup/setups/user.setup</location>
+		</link>
+	</linkedResources>
 </projectDescription>
