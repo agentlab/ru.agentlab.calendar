@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="GoogleCalendar" id="076dd3f7" version="3.1.1">
+  <folder name="Business" id="87f80a44" type="business"/>
+  <folder name="Application" id="59f32bad" type="application">
+    <element xsi:type="archimate:ApplicationComponent" id="61ba14f0" name="Компонент GoogleCalendar"/>
+    <element xsi:type="archimate:ApplicationComponent" id="c99f6c59" name="Компонент GUI"/>
+    <element xsi:type="archimate:ApplicationComponent" id="23c147c4" name="Компонент "/>
+    <element xsi:type="archimate:ApplicationComponent" id="3ca79620" name="Компонент Service Repository"/>
+  </folder>
+  <folder name="Technology" id="9e7d0ffb" type="technology"/>
+  <folder name="Motivation" id="1cda240d" type="motivation"/>
+  <folder name="Implementation &amp; Migration" id="561de048" type="implementation_migration"/>
+  <folder name="Connectors" id="fdd8220a" type="connectors"/>
+  <folder name="Relations" id="c6987c95" type="relations"/>
+  <folder name="Views" id="7f40a626" type="diagrams">
+    <element xsi:type="archimate:ArchimateDiagramModel" id="bc5371fe" name="Default View">
+      <child xsi:type="archimate:DiagramObject" id="b11feac7" textAlignment="2" archimateElement="61ba14f0">
+        <bounds x="396" y="107" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="7fa76b8a" textAlignment="2" archimateElement="c99f6c59">
+        <bounds x="120" y="260" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="a0ade1ae" textAlignment="2" archimateElement="23c147c4">
+        <bounds x="557" y="260" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="f8c3f810" textAlignment="2" archimateElement="3ca79620">
+        <bounds x="176" y="107" width="120" height="55"/>
+      </child>
+    </element>
+  </folder>
+</archimate:model>
