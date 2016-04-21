@@ -36,7 +36,7 @@ public class CalendarServiceTest {
 
 		serviceRegistration.register(ICalendarServiceConsumer.class, consumer);
 		service.addEvent(null);
-		verify(consumer).processEvent(null);
+		verify(consumer).addEvent(null);
 	}
 
 	@Test
@@ -44,6 +44,6 @@ public class CalendarServiceTest {
 		Registration registration = serviceRegistration.register(ICalendarServiceConsumer.class, consumer);
 		registration.unregister();
 		service.addEvent(null);
-		verify(consumer, never()).processEvent(null);
+		verify(consumer, never()).addEvent(null);
 	}
 }
