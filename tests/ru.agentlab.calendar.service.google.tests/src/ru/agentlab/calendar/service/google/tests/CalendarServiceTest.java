@@ -1,7 +1,7 @@
 package ru.agentlab.calendar.service.google.tests;
 
 import static com.codeaffine.osgi.test.util.ServiceCollector.collectServices;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -13,6 +13,7 @@ import org.junit.Test;
 import com.codeaffine.osgi.test.util.Registration;
 import com.codeaffine.osgi.test.util.ServiceRegistrationRule;
 
+import ru.agentlab.calendar.service.api.Event;
 import ru.agentlab.calendar.service.api.ICalendarService;
 import ru.agentlab.calendar.service.api.ICalendarServiceConsumer;
 import ru.agentlab.calendar.service.google.GoogleServiceImpl;
@@ -32,11 +33,13 @@ public class CalendarServiceTest {
 
 	@Test
 	public void executeNotification() {
-		assertTrue("True is OK", true);
-
 		serviceRegistration.register(ICalendarServiceConsumer.class, consumer);
-		service.addEvent(null);
-		verify(consumer).addEvent(null);
+		
+		Event event = new Event();
+		assertNotNull("True is OK", event);
+		
+		service.addEvent(event);
+		verify(consumer).onEventAdded(event);
 	}
 
 	@Test
@@ -44,6 +47,6 @@ public class CalendarServiceTest {
 		Registration registration = serviceRegistration.register(ICalendarServiceConsumer.class, consumer);
 		registration.unregister();
 		service.addEvent(null);
-		verify(consumer, never()).addEvent(null);
+		verify(consumer, never()).onEventAdded(null);
 	}
 }

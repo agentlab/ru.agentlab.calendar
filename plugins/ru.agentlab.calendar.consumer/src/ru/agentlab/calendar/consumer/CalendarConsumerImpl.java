@@ -6,11 +6,11 @@ import ru.agentlab.calendar.service.api.ICalendarServiceConsumer;
 public class CalendarConsumerImpl implements ICalendarServiceConsumer {
 
 	@Override
-	public void addEvent(Event e) {
+	public void onEventAdded(Event e) {
 	}
 
 	@Override
-	public void deleteEvent(Event e) {
+	public void onEventDeleted(Event e) {
 	}
 
 }
