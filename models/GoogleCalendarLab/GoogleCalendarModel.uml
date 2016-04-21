@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_kqkfkAeJEea1IJxnPMiNaA" name="RootElement">
+  <packagedElement xmi:type="uml:Package" xmi:id="_WNi_4AeKEea1IJxnPMiNaA" name="ru.agentlab.calendar.service.api">
+    <packagedElement xmi:type="uml:Class" xmi:id="_XQRLsAeLEea1IJxnPMiNaA" name="Event">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_UkSRIAeMEea1IJxnPMiNaA" name="title">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        <qualifier xmi:type="uml:Property" xmi:id="_flWK0AeMEea1IJxnPMiNaA" name="title">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </qualifier>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_g6bucAeMEea1IJxnPMiNaA" name="calendar">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_oyOxIAeMEea1IJxnPMiNaA" name="description">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vdOpgAeMEea1IJxnPMiNaA" name="startDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_4JCjEAeMEea1IJxnPMiNaA" name="endDate">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDate"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_k_LywAeLEea1IJxnPMiNaA" name="ICalendarService">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_EAv7cAeOEea1IJxnPMiNaA" name="deleteEvent">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_S92M4AeOEea1IJxnPMiNaA" name="e" type="_XQRLsAeLEea1IJxnPMiNaA"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_No9y4AeOEea1IJxnPMiNaA" name="addEvent" visibility="package">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_QSGYUAeOEea1IJxnPMiNaA" name="e" type="_XQRLsAeLEea1IJxnPMiNaA"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interface" xmi:id="_owI74AeLEea1IJxnPMiNaA" name="ICalendarServiceConsumer">
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_XGonMAeOEea1IJxnPMiNaA" name="onEventAdded">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_bHzWkAeOEea1IJxnPMiNaA" name="e" type="_XQRLsAeLEea1IJxnPMiNaA"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_cFIhgAeOEea1IJxnPMiNaA" name="onEventDeleted">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_fl4EYAeOEea1IJxnPMiNaA" name="e" type="_XQRLsAeLEea1IJxnPMiNaA"/>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_mgMyMAeOEea1IJxnPMiNaA" name="ru.agentlab.calendar.consumer">
+    <packagedElement xmi:type="uml:Class" xmi:id="_tLOfwAeOEea1IJxnPMiNaA" name="CalendarConsumerImpl">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_pBHk4weQEea1IJxnPMiNaA" name="icalendarservice" type="_k_LywAeLEea1IJxnPMiNaA" association="_pBHk4AeQEea1IJxnPMiNaA"/>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_0j0d8AeOEea1IJxnPMiNaA" client="_tLOfwAeOEea1IJxnPMiNaA" supplier="_owI74AeLEea1IJxnPMiNaA" contract="_owI74AeLEea1IJxnPMiNaA"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_-BlY4AeOEea1IJxnPMiNaA" name="onEventAdded" visibility="package">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_EGfhoAePEea1IJxnPMiNaA" name="e" type="_XQRLsAeLEea1IJxnPMiNaA"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_FHcoUAePEea1IJxnPMiNaA" name="onEventDeleted">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_KKqDgAePEea1IJxnPMiNaA" name="e" type="_XQRLsAeLEea1IJxnPMiNaA"/>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_Rk8q0AePEea1IJxnPMiNaA" name="ru.agentlab.calendar.service.google">
+    <packagedElement xmi:type="uml:Class" xmi:id="_dwHAIAePEea1IJxnPMiNaA" name="GoogleServiceImpl">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_ctw84AeQEea1IJxnPMiNaA" name="icalendarserviceconsumer" type="_owI74AeLEea1IJxnPMiNaA" association="_cttSgAeQEea1IJxnPMiNaA"/>
+      <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_ijMUoAePEea1IJxnPMiNaA" client="_dwHAIAePEea1IJxnPMiNaA" supplier="_k_LywAeLEea1IJxnPMiNaA" contract="_k_LywAeLEea1IJxnPMiNaA"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_sE3fMAePEea1IJxnPMiNaA" name="addEvent">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_wbTT8AePEea1IJxnPMiNaA" type="_XQRLsAeLEea1IJxnPMiNaA"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_xxlKYAePEea1IJxnPMiNaA" name="deleteEvent">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_3sTcYAePEea1IJxnPMiNaA" name="e" type="_XQRLsAeLEea1IJxnPMiNaA"/>
+      </ownedOperation>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_cttSgAeQEea1IJxnPMiNaA" memberEnd="_ctw84AeQEea1IJxnPMiNaA _ctw84QeQEea1IJxnPMiNaA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ctvHsAeQEea1IJxnPMiNaA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_ctvuwAeQEea1IJxnPMiNaA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ctw84QeQEea1IJxnPMiNaA" name="googleserviceimpl" type="_dwHAIAePEea1IJxnPMiNaA" association="_cttSgAeQEea1IJxnPMiNaA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g9yAkAeQEea1IJxnPMiNaA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_g92SAAeQEea1IJxnPMiNaA" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_pBHk4AeQEea1IJxnPMiNaA" memberEnd="_pBHk4weQEea1IJxnPMiNaA _pBHk5AeQEea1IJxnPMiNaA">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_pBHk4QeQEea1IJxnPMiNaA" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_pBHk4geQEea1IJxnPMiNaA" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_pBHk5AeQEea1IJxnPMiNaA" name="calendarconsumerimpl" type="_tLOfwAeOEea1IJxnPMiNaA" association="_pBHk4AeQEea1IJxnPMiNaA">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vjd3kAeQEea1IJxnPMiNaA"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vjfFsAeQEea1IJxnPMiNaA" value="*"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>
