@@ -354,13 +354,26 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_xR-kkQ0yEeaLQvbMC1QXhw"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xR-kkg0yEeaLQvbMC1QXhw"/>
           </children>
-          <children xmi:type="notation:Shape" xmi:id="_PQJogA0zEeaLQvbMC1QXhw" type="3006">
-            <element xmi:type="uml:ActionExecutionSpecification" href="GoogleCalendarModel.uml#_PQCTwA0zEeaLQvbMC1QXhw"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PQJogQ0zEeaLQvbMC1QXhw" x="95" y="55" width="16" height="371"/>
+          <children xmi:type="notation:Shape" xmi:id="_gq0AgBgTEeaS_8oGjdtlQQ" type="3003">
+            <children xmi:type="notation:DecorationNode" xmi:id="_gq0AghgTEeaS_8oGjdtlQQ" type="BehaviorExecutionSpecification_Behavior">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_gq0AgxgTEeaS_8oGjdtlQQ" x="18" y="18"/>
+            </children>
+            <element xmi:type="uml:BehaviorExecutionSpecification" href="GoogleCalendarModel.uml#_gqug8BgTEeaS_8oGjdtlQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gq0AgRgTEeaS_8oGjdtlQQ" x="104" y="231" width="16" height="70"/>
           </children>
-          <children xmi:type="notation:Shape" xmi:id="_-Ef_YA0zEeaLQvbMC1QXhw" type="3006">
-            <element xmi:type="uml:ActionExecutionSpecification" href="GoogleCalendarModel.uml#_-EZ4wA0zEeaLQvbMC1QXhw"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Ef_YQ0zEeaLQvbMC1QXhw" x="104" y="290" height="50"/>
+          <children xmi:type="notation:Shape" xmi:id="_oeMSsBgSEeaS_8oGjdtlQQ" type="3003">
+            <children xmi:type="notation:DecorationNode" xmi:id="_oeMSshgSEeaS_8oGjdtlQQ" type="BehaviorExecutionSpecification_Behavior">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_oeMSsxgSEeaS_8oGjdtlQQ" x="18" y="18"/>
+            </children>
+            <element xmi:type="uml:BehaviorExecutionSpecification" href="GoogleCalendarModel.uml#_oeIoUBgSEeaS_8oGjdtlQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oeMSsRgSEeaS_8oGjdtlQQ" x="95" y="48" width="16" height="301"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_DkxB8BgUEeaS_8oGjdtlQQ" type="3003">
+            <children xmi:type="notation:DecorationNode" xmi:id="_DkxpABgUEeaS_8oGjdtlQQ" type="BehaviorExecutionSpecification_Behavior">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_DkxpARgUEeaS_8oGjdtlQQ" x="18" y="18"/>
+            </children>
+            <element xmi:type="uml:BehaviorExecutionSpecification" href="GoogleCalendarModel.uml#_Dkvz0RgUEeaS_8oGjdtlQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DkxB8RgUEeaS_8oGjdtlQQ" x="104" y="55" height="50"/>
           </children>
           <element xmi:type="uml:Lifeline" href="GoogleCalendarModel.uml#_xRIQAA0yEeaLQvbMC1QXhw"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xRQy4Q0yEeaLQvbMC1QXhw" x="17" y="10" width="206" height="697"/>
@@ -374,9 +387,12 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_yPG7MQ0yEeaLQvbMC1QXhw"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yPG7Mg0yEeaLQvbMC1QXhw"/>
           </children>
-          <children xmi:type="notation:Shape" xmi:id="_RYLE8A0zEeaLQvbMC1QXhw" type="3006">
-            <element xmi:type="uml:ActionExecutionSpecification" href="GoogleCalendarModel.uml#_RYEXQA0zEeaLQvbMC1QXhw"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RYLE8Q0zEeaLQvbMC1QXhw" x="92" y="141" width="16" height="100"/>
+          <children xmi:type="notation:Shape" xmi:id="_MN0X4BgTEeaS_8oGjdtlQQ" type="3003">
+            <children xmi:type="notation:DecorationNode" xmi:id="_MN0X4hgTEeaS_8oGjdtlQQ" type="BehaviorExecutionSpecification_Behavior">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_MN0X4xgTEeaS_8oGjdtlQQ" x="18" y="18"/>
+            </children>
+            <element xmi:type="uml:BehaviorExecutionSpecification" href="GoogleCalendarModel.uml#_MNvfYBgTEeaS_8oGjdtlQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MN0X4RgTEeaS_8oGjdtlQQ" x="92" y="91" width="16" height="72"/>
           </children>
           <element xmi:type="uml:Lifeline" href="GoogleCalendarModel.uml#_yPANgA0yEeaLQvbMC1QXhw"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yPDQ0Q0yEeaLQvbMC1QXhw" x="247" y="12" width="200" height="695"/>
@@ -390,14 +406,31 @@
             <styles xmi:type="notation:TitleStyle" xmi:id="_y5G6cQ0yEeaLQvbMC1QXhw"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_y5G6cg0yEeaLQvbMC1QXhw"/>
           </children>
-          <children xmi:type="notation:Shape" xmi:id="_QlKToA0zEeaLQvbMC1QXhw" type="3006">
-            <element xmi:type="uml:ActionExecutionSpecification" href="GoogleCalendarModel.uml#_QlBwwA0zEeaLQvbMC1QXhw"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QlKToQ0zEeaLQvbMC1QXhw" x="147" y="86" width="16" height="334"/>
+          <children xmi:type="notation:Shape" xmi:id="_q6qVIBgSEeaS_8oGjdtlQQ" type="3003">
+            <children xmi:type="notation:DecorationNode" xmi:id="_q6qVIhgSEeaS_8oGjdtlQQ" type="BehaviorExecutionSpecification_Behavior">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_q6qVIxgSEeaS_8oGjdtlQQ" x="18" y="18"/>
+            </children>
+            <element xmi:type="uml:BehaviorExecutionSpecification" href="GoogleCalendarModel.uml#_q6mDsBgSEeaS_8oGjdtlQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_q6qVIRgSEeaS_8oGjdtlQQ" x="147" y="60" width="16" height="280"/>
           </children>
           <element xmi:type="uml:Lifeline" href="GoogleCalendarModel.uml#_y4--oA0yEeaLQvbMC1QXhw"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_y5CpAQ0yEeaLQvbMC1QXhw" x="484" y="14" width="311" height="693"/>
         </children>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iZ9c5A0xEeaLQvbMC1QXhw"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_AmCnABgUEeaS_8oGjdtlQQ" type="Gate">
+        <children xmi:type="notation:DecorationNode" xmi:id="_AmCnAhgUEeaS_8oGjdtlQQ" type="Gate_Name">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_AmCnAxgUEeaS_8oGjdtlQQ"/>
+        </children>
+        <element xmi:type="uml:Gate" href="GoogleCalendarModel.uml#_AmBY4BgUEeaS_8oGjdtlQQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_AmCnARgUEeaS_8oGjdtlQQ" x="-8" y="116"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_BeJTsBgUEeaS_8oGjdtlQQ" type="Gate">
+        <children xmi:type="notation:DecorationNode" xmi:id="_BeJTshgUEeaS_8oGjdtlQQ" type="Gate_Name">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_BeJTsxgUEeaS_8oGjdtlQQ"/>
+        </children>
+        <element xmi:type="uml:Gate" href="GoogleCalendarModel.uml#_BeIsoBgUEeaS_8oGjdtlQQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_BeJTsRgUEeaS_8oGjdtlQQ" y="415"/>
       </children>
       <element xmi:type="uml:Interaction" href="GoogleCalendarModel.uml#_f3I60A0xEeaLQvbMC1QXhw"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_iZ9c5Q0xEeaLQvbMC1QXhw"/>
@@ -408,50 +441,280 @@
       <owner xmi:type="uml:Model" href="GoogleCalendarModel.uml#_kqkfkAeJEea1IJxnPMiNaA"/>
     </styles>
     <element xmi:type="uml:Interaction" href="GoogleCalendarModel.uml#_f3I60A0xEeaLQvbMC1QXhw"/>
-    <edges xmi:type="notation:Edge" xmi:id="_mNIhoA0zEeaLQvbMC1QXhw" type="4003" source="_PQJogA0zEeaLQvbMC1QXhw" target="_QlKToA0zEeaLQvbMC1QXhw">
-      <children xmi:type="notation:DecorationNode" xmi:id="_mNJIsA0zEeaLQvbMC1QXhw" type="6001">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_mNJIsQ0zEeaLQvbMC1QXhw" x="1" y="-13"/>
+    <edges xmi:type="notation:Edge" xmi:id="_HguWoBgTEeaS_8oGjdtlQQ" type="4003" source="_oeMSsBgSEeaS_8oGjdtlQQ" target="_q6qVIBgSEeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_HguWpBgTEeaS_8oGjdtlQQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HguWpRgTEeaS_8oGjdtlQQ" x="1" y="-13"/>
       </children>
-      <children xmi:type="notation:DecorationNode" xmi:id="_mNJIsg0zEeaLQvbMC1QXhw" type="6008">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_mNJIsw0zEeaLQvbMC1QXhw" x="1" y="-33"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_HguWphgTEeaS_8oGjdtlQQ" type="6008">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HguWpxgTEeaS_8oGjdtlQQ" x="1" y="-33"/>
       </children>
-      <styles xmi:type="notation:RoutingStyle" xmi:id="_mNIhoQ0zEeaLQvbMC1QXhw"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_mNIhog0zEeaLQvbMC1QXhw"/>
-      <styles xmi:type="notation:LineStyle" xmi:id="_mNKW0A0zEeaLQvbMC1QXhw"/>
-      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_mJsMEA0zEeaLQvbMC1QXhw"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mNIhow0zEeaLQvbMC1QXhw" points="[8, 1, -503, 36]$[527, -35, 16, 0]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mNwzwA0zEeaLQvbMC1QXhw" id="(0.5,0.11590296495956873)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mNwzwQ0zEeaLQvbMC1QXhw" id="(0.0,0.0){8}"/>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_HguWoRgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_HguWohgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_HguWqBgTEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_HglMsBgTEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HguWoxgTEeaS_8oGjdtlQQ" points="[16, 1, -503, -24]$[535, 25, 16, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HgyoEBgTEeaS_8oGjdtlQQ" id="(0.0,0.03986710963455149)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HgyoERgTEeaS_8oGjdtlQQ" id="(0.0,0.0){8}"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_1wYNEA0zEeaLQvbMC1QXhw" type="4003" source="_QlKToA0zEeaLQvbMC1QXhw" target="_RYLE8A0zEeaLQvbMC1QXhw">
-      <children xmi:type="notation:DecorationNode" xmi:id="_1wY0IA0zEeaLQvbMC1QXhw" type="6001">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_1wY0IQ0zEeaLQvbMC1QXhw" x="1" y="-13"/>
+    <edges xmi:type="notation:Edge" xmi:id="_V1hR8BgTEeaS_8oGjdtlQQ" type="4004" source="_q6qVIBgSEeaS_8oGjdtlQQ" target="_MN0X4BgTEeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_V1hR9BgTEeaS_8oGjdtlQQ" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_V1hR9RgTEeaS_8oGjdtlQQ" x="1" y="-13"/>
       </children>
-      <children xmi:type="notation:DecorationNode" xmi:id="_1wY0Ig0zEeaLQvbMC1QXhw" type="6008">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_1wY0Iw0zEeaLQvbMC1QXhw" x="1" y="-33"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_V1hR9hgTEeaS_8oGjdtlQQ" type="6009">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_V1hR9xgTEeaS_8oGjdtlQQ" x="1" y="-33"/>
       </children>
-      <styles xmi:type="notation:RoutingStyle" xmi:id="_1wYNEQ0zEeaLQvbMC1QXhw"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_1wYNEg0zEeaLQvbMC1QXhw"/>
-      <styles xmi:type="notation:LineStyle" xmi:id="_1wY0JA0zEeaLQvbMC1QXhw"/>
-      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_1wGgQA0zEeaLQvbMC1QXhw"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1wYNEw0zEeaLQvbMC1QXhw" points="[-5, 3, 292, 29]$[-281, -26, 16, 0]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1wgv8A0zEeaLQvbMC1QXhw" id="(0.3125,0.17065868263473055)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1wgv8Q0zEeaLQvbMC1QXhw" id="(0.0,0.0){8}"/>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_V1hR8RgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_V1hR8hgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_V1hR-BgTEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_V1WS0BgTEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_V1hR8xgTEeaS_8oGjdtlQQ" points="[-6, -2, 292, 7]$[-282, -9, 16, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_V1k8UBgTEeaS_8oGjdtlQQ" id="(0.375,0.1357142857142857)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_V1k8URgTEeaS_8oGjdtlQQ" id="(0.0,0.0){8}"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_47alsA0zEeaLQvbMC1QXhw" type="4005" source="_RYLE8A0zEeaLQvbMC1QXhw" target="_QlKToA0zEeaLQvbMC1QXhw">
-      <children xmi:type="notation:DecorationNode" xmi:id="_47altA0zEeaLQvbMC1QXhw" type="6003">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_47altQ0zEeaLQvbMC1QXhw" x="1" y="-13"/>
+    <edges xmi:type="notation:Edge" xmi:id="_aa9zEBgTEeaS_8oGjdtlQQ" type="4005" source="_MN0X4BgTEeaS_8oGjdtlQQ" target="_q6qVIBgSEeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_aa9zFBgTEeaS_8oGjdtlQQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_aa9zFRgTEeaS_8oGjdtlQQ" x="1" y="-13"/>
       </children>
-      <children xmi:type="notation:DecorationNode" xmi:id="_47altg0zEeaLQvbMC1QXhw" type="6010">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_47altw0zEeaLQvbMC1QXhw" x="1" y="-33"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_aa9zFhgTEeaS_8oGjdtlQQ" type="6010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_aa9zFxgTEeaS_8oGjdtlQQ" x="1" y="-33"/>
       </children>
-      <styles xmi:type="notation:RoutingStyle" xmi:id="_47alsQ0zEeaLQvbMC1QXhw"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_47alsg0zEeaLQvbMC1QXhw"/>
-      <styles xmi:type="notation:LineStyle" xmi:id="_47aluA0zEeaLQvbMC1QXhw"/>
-      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_47KuEA0zEeaLQvbMC1QXhw"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_47alsw0zEeaLQvbMC1QXhw" points="[7, 0, -282, -37]$[288, 66, -1, 29]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_47naAA0zEeaLQvbMC1QXhw" id="(0.5625,0.63)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_47naAQ0zEeaLQvbMC1QXhw" id="(0.375,0.45808383233532934)"/>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_aa9zERgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_aa9zEhgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_aa9zGBgTEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_aazbABgTEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_aa9zExgTEeaS_8oGjdtlQQ" points="[8, 0, -286, -25]$[300, 13, 6, -12]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_abCEgBgTEeaS_8oGjdtlQQ" id="(0.5,0.7361111111111112)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_abCEgRgTEeaS_8oGjdtlQQ" id="(0.625,0.3821428571428571)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_jkkb4BgTEeaS_8oGjdtlQQ" type="4004" source="_q6qVIBgSEeaS_8oGjdtlQQ" target="_gq0AgBgTEeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_jklC8BgTEeaS_8oGjdtlQQ" type="6002">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jklC8RgTEeaS_8oGjdtlQQ" x="1" y="-13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_jklC8hgTEeaS_8oGjdtlQQ" type="6009">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_jklC8xgTEeaS_8oGjdtlQQ" x="1" y="-33"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_jkkb4RgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_jkkb4hgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_jklC9BgTEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_jkZcwBgTEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_jkkb4xgTEeaS_8oGjdtlQQ" points="[-4, -8, 510, 3]$[-498, -11, 16, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jkpUYBgTEeaS_8oGjdtlQQ" id="(0.25,0.6)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_jkpUYRgTEeaS_8oGjdtlQQ" id="(0.0,0.0){8}"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_nGr3wBgTEeaS_8oGjdtlQQ" type="4005" source="_gq0AgBgTEeaS_8oGjdtlQQ" target="_q6qVIBgSEeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_nGr3xBgTEeaS_8oGjdtlQQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nGr3xRgTEeaS_8oGjdtlQQ" x="1" y="-13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_nGr3xhgTEeaS_8oGjdtlQQ" type="6010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nGr3xxgTEeaS_8oGjdtlQQ" x="1" y="-33"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_nGr3wRgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_nGr3whgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_nGr3yBgTEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_nGg4oBgTEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_nGr3wxgTEeaS_8oGjdtlQQ" points="[4, 0, -496, -17]$[498, 44, -2, 27]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nGviIBgTEeaS_8oGjdtlQQ" id="(0.75,0.7428571428571429)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nGviIRgTEeaS_8oGjdtlQQ" id="(0.125,0.8428571428571429)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_7YMpIBgTEeaS_8oGjdtlQQ" type="4005" source="_q6qVIBgSEeaS_8oGjdtlQQ" target="_oeMSsBgSEeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_7YMpJBgTEeaS_8oGjdtlQQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7YMpJRgTEeaS_8oGjdtlQQ" x="1" y="-13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_7YMpJhgTEeaS_8oGjdtlQQ" type="6010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_7YMpJxgTEeaS_8oGjdtlQQ" x="1" y="-33"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_7YMpIRgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_7YMpIhgTEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_7YMpKBgTEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_7X_NwBgTEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7YMpIxgTEeaS_8oGjdtlQQ" points="[0, 0, 519, -10]$[-503, 10, 16, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7YQTgBgTEeaS_8oGjdtlQQ" id="(0.0,1.0){32}"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7YQTgRgTEeaS_8oGjdtlQQ" id="(0.0,0.973421926910299){32}"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_DkpGIBgUEeaS_8oGjdtlQQ" type="4003" source="_AmCnABgUEeaS_8oGjdtlQQ" target="_oeMSsBgSEeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_DkpGJBgUEeaS_8oGjdtlQQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_DkpGJRgUEeaS_8oGjdtlQQ" x="1" y="-13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_DkpGJhgUEeaS_8oGjdtlQQ" type="6008">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_DkpGJxgUEeaS_8oGjdtlQQ" x="1" y="-33"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_DkpGIRgUEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_DkpGIhgUEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_DkpGKBgUEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_DkbqwBgUEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DkpGIxgUEeaS_8oGjdtlQQ" points="[3, -4, -122, 6]$[141, -10, 16, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DkulsBgUEeaS_8oGjdtlQQ" id="(0.8125,0.6875)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Dk16cBgUEeaS_8oGjdtlQQ" id="(0.5, 0.0)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_IJYcoBgUEeaS_8oGjdtlQQ" type="4005" source="_oeMSsBgSEeaS_8oGjdtlQQ" target="_BeJTsBgUEeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_IJZDsBgUEeaS_8oGjdtlQQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_IJZDsRgUEeaS_8oGjdtlQQ" x="1" y="-13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_IJZDshgUEeaS_8oGjdtlQQ" type="6010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_IJZDsxgUEeaS_8oGjdtlQQ" x="1" y="-33"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_IJYcoRgUEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_IJYcohgUEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_IJZDtBgUEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_IJM2cBgUEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_IJYcoxgUEeaS_8oGjdtlQQ" points="[0, 0, 122, -1]$[-122, 9, 0, 8]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_IJ1voBgUEeaS_8oGjdtlQQ" id="(0.0,1.0){32}"/>
+    </edges>
+  </notation:Diagram>
+  <notation:Diagram xmi:id="_jTQ7YBgREeaS_8oGjdtlQQ" type="PapyrusUMLSequenceDiagram" name="SeqDiagramDel" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_jTQ7YRgREeaS_8oGjdtlQQ" type="2001">
+      <children xmi:type="notation:DecorationNode" xmi:id="_jTQ7YhgREeaS_8oGjdtlQQ" type="5001"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_jTQ7YxgREeaS_8oGjdtlQQ" type="7001">
+        <children xmi:type="notation:Shape" xmi:id="_lIL1oBgREeaS_8oGjdtlQQ" type="3001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_lIL1ohgREeaS_8oGjdtlQQ" type="5002"/>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_lIPgABgREeaS_8oGjdtlQQ" type="compartment_shape_display">
+            <styles xmi:type="notation:TitleStyle" xmi:id="_lIPgARgREeaS_8oGjdtlQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lIPgAhgREeaS_8oGjdtlQQ"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_--wyEBgREeaS_8oGjdtlQQ" type="3006">
+            <element xmi:type="uml:ActionExecutionSpecification" href="GoogleCalendarModel.uml#_--sgoBgREeaS_8oGjdtlQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_--wyERgREeaS_8oGjdtlQQ" x="42" y="42" width="16" height="142"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_RniEABgSEeaS_8oGjdtlQQ" type="3006">
+            <element xmi:type="uml:ActionExecutionSpecification" href="GoogleCalendarModel.uml#_RnckcBgSEeaS_8oGjdtlQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RniEARgSEeaS_8oGjdtlQQ" x="51" y="92" width="16" height="75"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_a4lYoBgSEeaS_8oGjdtlQQ" type="3003">
+            <children xmi:type="notation:DecorationNode" xmi:id="_a4lYohgSEeaS_8oGjdtlQQ" type="BehaviorExecutionSpecification_Behavior">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_a4lYoxgSEeaS_8oGjdtlQQ" x="18" y="18"/>
+            </children>
+            <element xmi:type="uml:BehaviorExecutionSpecification" href="GoogleCalendarModel.uml#_a4f5EBgSEeaS_8oGjdtlQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a4lYoRgSEeaS_8oGjdtlQQ" x="60" y="107" height="50"/>
+          </children>
+          <element xmi:type="uml:Lifeline" href="GoogleCalendarModel.uml#_lIJZYBgREeaS_8oGjdtlQQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lIL1oRgREeaS_8oGjdtlQQ" x="85" y="10" width="100" height="697"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_ltFScBgREeaS_8oGjdtlQQ" type="3001">
+          <children xmi:type="notation:DecorationNode" xmi:id="_ltF5gBgREeaS_8oGjdtlQQ" type="5002"/>
+          <children xmi:type="notation:BasicCompartment" xmi:id="_ltHusBgREeaS_8oGjdtlQQ" type="compartment_shape_display">
+            <styles xmi:type="notation:TitleStyle" xmi:id="_ltHusRgREeaS_8oGjdtlQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ltHushgREeaS_8oGjdtlQQ"/>
+          </children>
+          <children xmi:type="notation:Shape" xmi:id="_vaGKUBgREeaS_8oGjdtlQQ" type="3006">
+            <element xmi:type="uml:ActionExecutionSpecification" href="GoogleCalendarModel.uml#_vaCf8BgREeaS_8oGjdtlQQ"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vaGKURgREeaS_8oGjdtlQQ" x="42" y="58" width="16" height="135"/>
+          </children>
+          <element xmi:type="uml:Lifeline" href="GoogleCalendarModel.uml#_ltDdQBgREeaS_8oGjdtlQQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ltFScRgREeaS_8oGjdtlQQ" x="372" y="12" width="100" height="695"/>
+        </children>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jTQ7ZBgREeaS_8oGjdtlQQ"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_1N0ccBgREeaS_8oGjdtlQQ" type="Gate">
+        <children xmi:type="notation:DecorationNode" xmi:id="_1N1DgBgREeaS_8oGjdtlQQ" type="Gate_Name">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_1N1DgRgREeaS_8oGjdtlQQ"/>
+        </children>
+        <element xmi:type="uml:Gate" href="GoogleCalendarModel.uml#_1Nz1YBgREeaS_8oGjdtlQQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_1N0ccRgREeaS_8oGjdtlQQ" y="109"/>
+      </children>
+      <children xmi:type="notation:Shape" xmi:id="_FS2mUBgSEeaS_8oGjdtlQQ" type="Gate">
+        <children xmi:type="notation:DecorationNode" xmi:id="_FS2mUhgSEeaS_8oGjdtlQQ" type="Gate_Name">
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_FS2mUxgSEeaS_8oGjdtlQQ"/>
+        </children>
+        <element xmi:type="uml:Gate" href="GoogleCalendarModel.uml#_FS1_QBgSEeaS_8oGjdtlQQ"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_FS2mURgSEeaS_8oGjdtlQQ" x="-8" y="172"/>
+      </children>
+      <element xmi:type="uml:Interaction" href="GoogleCalendarModel.uml#_h8umQBgREeaS_8oGjdtlQQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jTQ7ZRgREeaS_8oGjdtlQQ"/>
+    </children>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_jTQ7ZhgREeaS_8oGjdtlQQ" name="diagram_compatibility_version" stringValue="1.1.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_jTQ7ZxgREeaS_8oGjdtlQQ"/>
+    <styles xmi:type="style:PapyrusViewStyle" xmi:id="_jTQ7aBgREeaS_8oGjdtlQQ">
+      <owner xmi:type="uml:Model" href="GoogleCalendarModel.uml#_kqkfkAeJEea1IJxnPMiNaA"/>
+    </styles>
+    <element xmi:type="uml:Interaction" href="GoogleCalendarModel.uml#_h8umQBgREeaS_8oGjdtlQQ"/>
+    <edges xmi:type="notation:Edge" xmi:id="_AZxXgBgSEeaS_8oGjdtlQQ" type="4003" source="_1N0ccBgREeaS_8oGjdtlQQ" target="_--wyEBgREeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_AZxXhBgSEeaS_8oGjdtlQQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_AZx-kBgSEeaS_8oGjdtlQQ" x="1" y="-13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_AZx-kRgSEeaS_8oGjdtlQQ" type="6008">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_AZx-khgSEeaS_8oGjdtlQQ" x="1" y="-33"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_AZxXgRgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_AZxXghgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_AZx-kxgSEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_AZnmgBgSEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_AZxXgxgSEeaS_8oGjdtlQQ" points="[11, 5, -129, 2]$[156, 3, 16, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AZ5TUBgSEeaS_8oGjdtlQQ" id="(0.3125,0.1875)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AZ5TURgSEeaS_8oGjdtlQQ" id="(0.0,0.0){8}"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_HIR24BgSEeaS_8oGjdtlQQ" type="4005" source="_--wyEBgREeaS_8oGjdtlQQ" target="_FS2mUBgSEeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_HIR25BgSEeaS_8oGjdtlQQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HIR25RgSEeaS_8oGjdtlQQ" x="1" y="-13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_HIR25hgSEeaS_8oGjdtlQQ" type="6010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HIR25xgSEeaS_8oGjdtlQQ" x="1" y="-33"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_HIR24RgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_HIR24hgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_HIR26BgSEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_HIHe0BgSEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HIR24xgSEeaS_8oGjdtlQQ" points="[-10, 1, 137, -18]$[-147, 27, 0, 8]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HIZLoBgSEeaS_8oGjdtlQQ" id="(0.625,0.28169014084507044)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_K7ZjMBgSEeaS_8oGjdtlQQ" type="4003" source="_--wyEBgREeaS_8oGjdtlQQ" target="_vaGKUBgREeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_K7aKQBgSEeaS_8oGjdtlQQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_K7aKQRgSEeaS_8oGjdtlQQ" x="1" y="-13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_K7aKQhgSEeaS_8oGjdtlQQ" type="6008">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_K7aKQxgSEeaS_8oGjdtlQQ" x="1" y="-33"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_K7ZjMRgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_K7ZjMhgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_K7aKRBgSEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_K7RnYBgSEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_K7ZjMxgSEeaS_8oGjdtlQQ" points="[7, 0, -271, -6]$[294, 6, 16, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_K7ebsBgSEeaS_8oGjdtlQQ" id="(0.5625,0.08450704225352113)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_K7ebsRgSEeaS_8oGjdtlQQ" id="(0.0,0.0){8}"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_ODfVgBgSEeaS_8oGjdtlQQ" type="4005" source="_vaGKUBgREeaS_8oGjdtlQQ" target="_--wyEBgREeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ODfVhBgSEeaS_8oGjdtlQQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ODf8kBgSEeaS_8oGjdtlQQ" x="1" y="-13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_ODf8kRgSEeaS_8oGjdtlQQ" type="6010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ODf8khgSEeaS_8oGjdtlQQ" x="1" y="-33"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_ODfVgRgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_ODfVghgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_ODf8kxgSEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_ODWyoBgSEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ODfVgxgSEeaS_8oGjdtlQQ" points="[-6, 0, 287, -13]$[-277, 13, 16, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ODwbQBgSEeaS_8oGjdtlQQ" id="(0.375,0.23703703703703705)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ODwbQRgSEeaS_8oGjdtlQQ" id="(0.0,0.44366197183098594){32}"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_cnqJkBgSEeaS_8oGjdtlQQ" type="4003" source="_vaGKUBgREeaS_8oGjdtlQQ" target="_a4lYoBgSEeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_cnqJlBgSEeaS_8oGjdtlQQ" type="6001">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_cnqJlRgSEeaS_8oGjdtlQQ" x="1" y="-13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_cnqJlhgSEeaS_8oGjdtlQQ" type="6008">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_cnqJlxgSEeaS_8oGjdtlQQ" x="1" y="-33"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_cnqJkRgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_cnqJkhgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_cnqJmBgSEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_cng_oBgSEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cnqJkxgSEeaS_8oGjdtlQQ" points="[-9, 0, 269, -14]$[-262, 14, 16, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cnubABgSEeaS_8oGjdtlQQ" id="(0.5625,0.24444444444444444)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cnubARgSEeaS_8oGjdtlQQ" id="(0.0,0.0){8}"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_eIlJwBgSEeaS_8oGjdtlQQ" type="4005" source="_a4lYoBgSEeaS_8oGjdtlQQ" target="_vaGKUBgREeaS_8oGjdtlQQ">
+      <children xmi:type="notation:DecorationNode" xmi:id="_eIlw0BgSEeaS_8oGjdtlQQ" type="6003">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_eIlw0RgSEeaS_8oGjdtlQQ" x="1" y="-13"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_eIlw0hgSEeaS_8oGjdtlQQ" type="6010">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_eIlw0xgSEeaS_8oGjdtlQQ" x="1" y="-33"/>
+      </children>
+      <styles xmi:type="notation:RoutingStyle" xmi:id="_eIlJwRgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_eIlJwhgSEeaS_8oGjdtlQQ"/>
+      <styles xmi:type="notation:LineStyle" xmi:id="_eIlw1BgSEeaS_8oGjdtlQQ"/>
+      <element xmi:type="uml:Message" href="GoogleCalendarModel.uml#_eIfDIBgSEeaS_8oGjdtlQQ"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_eIlJwxgSEeaS_8oGjdtlQQ" points="[16, 0, -261, -7]$[277, 38, 0, 31]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_eI0aUBgSEeaS_8oGjdtlQQ" id="(0.0,1.0){32}"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_eI0aURgSEeaS_8oGjdtlQQ" id="(0.5,0.7703703703703704)"/>
     </edges>
   </notation:Diagram>
 </xmi:XMI>
