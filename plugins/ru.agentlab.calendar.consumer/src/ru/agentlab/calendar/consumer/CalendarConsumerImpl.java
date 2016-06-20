@@ -3,9 +3,12 @@ package ru.agentlab.calendar.consumer;
 import java.util.ArrayList;
 
 import ru.agentlab.calendar.service.api.Event;
+import ru.agentlab.calendar.service.api.ICalendarService;
 import ru.agentlab.calendar.service.api.ICalendarServiceConsumer;
 
 public class CalendarConsumerImpl implements ICalendarServiceConsumer {
+	
+	protected ArrayList<ICalendarService> calendarsList = new ArrayList<>();
 
 	@Override
 	public void onEventAdded(Event e) {
@@ -15,8 +18,11 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer {
 	public void onEventDeleted(Event e) {
 	}
 
-	public void addCalendar(ICalendarServiceConsumer service) {
-		ArrayList<ICalendarServiceConsumer> list = new ArrayList();
-		list.add(service);
+	public void addCalendar(ICalendarService service) {
+		calendarsList.add(service);
+	}
+	
+	public void removeCalendar(ICalendarService service) {
+		calendarsList.remove(service);
 	}
 }

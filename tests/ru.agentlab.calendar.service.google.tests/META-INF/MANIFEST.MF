@@ -10,6 +10,7 @@ Import-Package: ru.agentlab.calendar.service.api
 Require-Bundle: org.junit;bundle-version="4.12.0",
  org.mockito;bundle-version="1.9.5",
  com.codeaffine.osgi.test.util;bundle-version="0.1.0",
+ org.hamcrest.core;bundle-version="1.3.0",
  org.hamcrest.generator;bundle-version="1.3.0",
  org.hamcrest.integration;bundle-version="1.3.0",
  org.hamcrest.library;bundle-version="1.3.0"

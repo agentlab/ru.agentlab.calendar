@@ -44,7 +44,7 @@ public class CalendarServiceTest {
 
 	@Test
 	public void executeAfterListenerRemoval() {
-		Registration registration = serviceRegistration.register(ICalendarServiceConsumer.class, consumer);
+		Registration<?> registration = serviceRegistration.register(ICalendarServiceConsumer.class, consumer);
 		registration.unregister();
 		service.addEvent(null);
 		verify(consumer, never()).onEventAdded(null);

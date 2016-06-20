@@ -43,10 +43,8 @@
           name="org.eclipse.jdt.feature.group"/>
       <requirement
           name="com.vogella.saneclipse.feature.feature.group"/>
-      <repository
-          url="http://download.eclipse.org/eclipse/updates/4.5"/>
-      <repository
-          url="http://download.eclipse.org/releases/mars/"/>
+      <requirement
+          name="org.eclipse.e4.core.tools.feature.source.feature.group"/>
       <repository
           url="http://agentlab.ru/eclipse/update/ch.qos.logback.beagle/1.1.4.201411292018"/>
       <repository
@@ -149,7 +147,7 @@
       <repository
           url="https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-buildhelper/0.15.0/N/0.15.0.201405280027/"/>
       <repository
-          url="https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-mavenarchiver/0.17.0/N/LATEST/"/>
+          url="https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-mavenarchiver/0.17.0/N/0.17.0./"/>
       <repository
           url="http://download.eclipse.org/releases/mars/"/>
       <repository
@@ -200,6 +198,19 @@
           name="ocl-luna-maintenance"/>
       <buildPlan
           name="buckminster-ocl-branch-tests"/>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="e(fx)clipse">
+    <setupTask
+        xsi:type="setup.p2:P2Task"
+        label="E(fx)clipse">
+      <requirement
+          name="org.eclipse.fx.ide.feature.feature.group"/>
+      <repository
+          url="http://download.eclipse.org/efxclipse/updates-released/2.4.0/site"/>
+      <description></description>
     </setupTask>
   </setupTask>
   <setupTask
@@ -384,11 +395,8 @@
           name="com.google.inject.assistedinject"
           versionRange="[3.0.0,3.1.0)"/>
       <requirement
-          name="com.google.inject.multibindings.translated_host_properties"
-          versionRange="[3.0.0,3.1.0)"/>
-      <requirement
           name="org.apache.commons.codec"
-          versionRange="[1.4.0,1.5.0)"/>
+          versionRange="[1.4.0,2.0.0)"/>
       <requirement
           name="org.apache.commons.io"
           versionRange="[2.2.0,2.3.0)"/>
@@ -408,7 +416,7 @@
           name="org.hamcrest.library"
           versionRange="[1.3.0,2.0.0)"/>
       <requirement
-          name="org.mockito"
+          name="org.mockito.feature.feature.group"
           versionRange="[1.9.5,2.0.0)"/>
       <requirement
           name="com.google.jsr305.feature.feature.group"
@@ -417,16 +425,28 @@
           name="com.google.guava.feature.feature.group"
           versionRange="[18.0.0,18.1.0)"/>
       <requirement
+          name="org.eclipse.e4.rcp.feature.group"/>
+      <requirement
           name="org.eclipse.equinox.sdk.feature.group"/>
       <requirement
           name="com.codeaffine.osgi.test.util.feature.feature.group"/>
       <requirement
           name="org.junit.feature.feature.group"
           versionRange="[4.12.0,5.0.0)"/>
+      <requirement
+          name="org.eclipse.fx.core.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.fx.runtime.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.fx.target.rcp4.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.fx.target.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.fx.slf4j.target.feature.feature.group"/>
       <repositoryList
           name="Mars">
         <repository
-            url="http://download.eclipse.org/tools/orbit/downloads/drops/S20160308060251/repository"/>
+            url="http://download.eclipse.org/tools/orbit/downloads/drops/R20160520211859/repository"/>
         <repository
             url="http://download.eclipse.org/eclipse/updates/4.5"/>
         <repository
@@ -437,6 +457,12 @@
             url="http://fappel.github.io/xiliary"/>
         <repository
             url="http://agentlab.ru/eclipse/update/org.junit"/>
+        <repository
+            url="http://agentlab.ru/eclipse/update/org.mockito"/>
+        <repository
+            url="http://download.eclipse.org/efxclipse/runtime-released/2.4.0/site"/>
+        <repository
+            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
       </repositoryList>
     </targlet>
   </setupTask>
