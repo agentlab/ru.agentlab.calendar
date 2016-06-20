@@ -19,8 +19,12 @@
 		<module>../../plugins/ru.agentlab.calendar.service.api</module>
 		<module>../../plugins/ru.agentlab.calendar.service.google</module>
 		<module>../../plugins/ru.agentlab.calendar.consumer</module>
+		<!--<module>../../plugins/ru.agentlab.calendar.app</module>
+
+		<module>../../features/ru.agentlab.calendar.app.feature</module>
+		<module>../ru.agentlab.calendar.app.product</module>
 		
-		<module>../../tests/ru.agentlab.calendar.service.google.tests</module>
+		<module>../../tests/ru.agentlab.calendar.service.google.tests</module>-->
 	</modules>
 
 	<build>
