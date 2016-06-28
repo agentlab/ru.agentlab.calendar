@@ -35,7 +35,6 @@
       <import plugin="org.eclipse.e4.ui.workbench"/>
       <import plugin="org.eclipse.e4.ui.services"/>
       <import plugin="org.eclipse.fx.ui.services"/>
-      <import plugin="org.eclipse.fx.javafx"/>
       <import plugin="org.eclipse.fx.core.di" version="2.4.0" match="greaterOrEqual"/>
       <import plugin="com.google.guava"/>
       <import plugin="javax.annotation"/>
@@ -50,13 +49,6 @@
          unpack="false"/>
 
    <plugin
-         id="ru.agentlab.calendar.consumer"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="ru.agentlab.calendar.service.api"
          download-size="0"
          install-size="0"
@@ -65,6 +57,13 @@
 
    <plugin
          id="ru.agentlab.calendar.service.google"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.fx.javafx"
          download-size="0"
          install-size="0"
          version="0.0.0"

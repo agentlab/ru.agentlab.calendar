@@ -3,7 +3,6 @@
 
 <product name="ru.agentlab.calendar.product" uid="ru.agentlab.calendar.app.product" id="ru.agentlab.calendar.app.product" application="org.eclipse.fx.ui.workbench.fx.application" version="1.0.0" useFeatures="true" includeLaunchers="false">
 
-
    <configIni use="default">
    </configIni>
 
@@ -16,7 +15,6 @@
 
    <windowImages/>
 
-
    <launcher>
       <solaris/>
       <win useIco="false">
@@ -24,10 +22,8 @@
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
    </plugins>

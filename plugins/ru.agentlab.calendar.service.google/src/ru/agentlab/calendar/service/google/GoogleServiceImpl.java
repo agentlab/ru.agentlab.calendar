@@ -1,9 +1,11 @@
 package ru.agentlab.calendar.service.google;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.TimeZone;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -14,9 +16,11 @@ import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.util.DateTime;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.calendar.CalendarScopes;
 import com.google.api.services.calendar.model.Calendar;
+import com.google.api.services.calendar.model.EventDateTime;
 
 import ru.agentlab.calendar.service.api.Event;
 import ru.agentlab.calendar.service.api.ICalendarService;
@@ -44,8 +48,8 @@ public class GoogleServiceImpl implements ICalendarService {
 	
 	private static Credential authorize() throws Exception {
 	    // load client secrets
-	    GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY,
-	        new InputStreamReader(GoogleServiceImpl.class.getResourceAsStream("/client_secrets.json")));
+	    FileInputStream fis = new FileInputStream("client_secrets.json");
+		GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY,new InputStreamReader(fis));//GoogleServiceImpl.class.getResourceAsStream("/client_secrets.json")));
 	    if (clientSecrets.getDetails().getClientId().startsWith("Enter")
 	        || clientSecrets.getDetails().getClientSecret().startsWith("Enter ")) {
 	      System.out.println(
@@ -66,6 +70,10 @@ public class GoogleServiceImpl implements ICalendarService {
 	public void addEvent(Event e) {
 		com.google.api.services.calendar.model.Event event = new com.google.api.services.calendar.model.Event();
 		event.setSummary(e.title);
+		DateTime start = new DateTime(e.startDate, TimeZone.getTimeZone("UTC"));
+		DateTime end = new DateTime(e.endDate, TimeZone.getTimeZone("UTC"));
+	    event.setStart(new EventDateTime().setDateTime(start));
+	    event.setEnd(new EventDateTime().setDateTime(end));
 		try {
 			com.google.api.services.calendar.model.Event result = client.events().insert(calendar.getId(), event).execute();
 		}catch(IOException evt){

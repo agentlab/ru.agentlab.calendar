@@ -1,8 +1,11 @@
 package ru.agentlab.calendar.app.ui;
 
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.temporal.WeekFields;
+import java.util.Date;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -88,6 +91,10 @@ public class CalendarPart {
 		if(evt.getEventType().equals(CalendarEvent.ENTRY_ADDED)) {
 			Event event = new Event();
 			event.title= evt.getEntry().getTitle();
+			LocalDate startLocalDate = evt.getEntry().getStartDate();
+			event.startDate = Date.from(startLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+			LocalDate endLocalDate = evt.getEntry().getEndDate();
+			event.endDate = Date.from(endLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 			calendar.addEvent(event);
 		}
 		return null;
