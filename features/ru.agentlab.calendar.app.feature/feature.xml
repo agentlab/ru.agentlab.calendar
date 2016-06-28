@@ -1,23 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-	id="ru.agentlab.calendar.app.feature"
-	label="ru.agentlab.calendar.product Application Feature"
-	version="1.0.0.qualifier"
-	provider-name="AgentLab"
-	>
-		<description url="http://www.efxclipse.org">
-			TODO FILL WITH CONTENT
-		</description>
+      id="ru.agentlab.calendar.app.feature"
+      label="ru.agentlab.calendar.product Application Feature"
+      version="1.0.0.qualifier"
+      provider-name="AgentLab">
 
-		<copyright url="http://www.efxclipse.org">
-			TODO FILL WITH CONTENT
-		</copyright>
+   <description url="http://www.efxclipse.org">
+      TODO FILL WITH CONTENT
+   </description>
 
-		<license url="http://www.efxclipse.org">
-			TODO FILL WITH CONTENT
-		</license>
+   <copyright url="http://www.efxclipse.org">
+      TODO FILL WITH CONTENT
+   </copyright>
 
-   		<plugin id="ru.agentlab.calendar.app" install-size="0" version="0.0.0" unpack="false" />
+   <license url="http://www.efxclipse.org">
+      TODO FILL WITH CONTENT
+   </license>
 
+   <requires>
+      <import plugin="org.eclipse.fx.ui.workbench.fx"/>
+      <import plugin="org.eclipse.e4.ui.model.workbench"/>
+      <import plugin="org.eclipse.e4.core.services"/>
+      <import plugin="org.eclipse.e4.core.di"/>
+      <import plugin="org.eclipse.e4.ui.di"/>
+      <import plugin="org.eclipse.e4.core.di.extensions"/>
+      <import plugin="org.eclipse.fx.ui.theme"/>
+      <import plugin="org.eclipse.fx.ui.di"/>
+      <import plugin="org.eclipse.e4.core.contexts"/>
+      <import plugin="org.eclipse.fx.core.databinding"/>
+      <import plugin="org.eclipse.fx.ui.databinding"/>
+      <import plugin="org.eclipse.core.databinding"/>
+      <import plugin="org.eclipse.core.databinding.observable"/>
+      <import plugin="org.eclipse.core.databinding.property"/>
+      <import plugin="org.eclipse.e4.ui.workbench"/>
+      <import plugin="org.eclipse.e4.ui.services"/>
+      <import plugin="org.eclipse.fx.ui.services"/>
+      <import plugin="org.eclipse.fx.javafx"/>
+      <import plugin="org.eclipse.fx.core.di" version="2.4.0" match="greaterOrEqual"/>
+      <import plugin="com.google.guava"/>
+      <import plugin="javax.annotation"/>
+      <import plugin="javax.inject"/>
+      <import plugin="ru.agentlab.calendar.service.api"/>
+      <import plugin="ru.agentlab.calendar.consumer"/>
+      <import plugin="ru.agentlab.calendar.service.google"/>
+   </requires>
+
+   <plugin
+         id="ru.agentlab.calendar.app"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
