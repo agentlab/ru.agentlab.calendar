@@ -3,7 +3,6 @@ package ru.agentlab.calendar.app.ui;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.time.temporal.WeekFields;
-import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -22,7 +21,8 @@ import com.calendarfx.view.page.WeekPage;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
-import ru.agentlab.calendar.service.api.ICalendarServiceConsumer;
+import ru.agentlab.calendar.service.api.Event;
+import ru.agentlab.calendar.service.api.ICalendarService;
 
 public class CalendarPart {
 	@Inject
@@ -31,7 +31,7 @@ public class CalendarPart {
 	
 	  @Inject
 	  @Service
-	  private List<ICalendarServiceConsumer> consumersList; // all instances available and reinject when services are added/removed
+	  private ICalendarService calendar; // all instances available and reinject when services are added/removed
 	
 	public CalendarPart() {
 		System.out.println("Hello");
@@ -85,6 +85,11 @@ public class CalendarPart {
 	}
 	
 	private Object foo(CalendarEvent evt) {
+		if(evt.getEventType().equals(CalendarEvent.ENTRY_ADDED)) {
+			Event event = new Event();
+			event.title= evt.getEntry().getTitle();
+			calendar.addEvent(event);
+		}
 		return null;
 	}
 }

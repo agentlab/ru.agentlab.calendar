@@ -40,13 +40,31 @@
       <import plugin="com.google.guava"/>
       <import plugin="javax.annotation"/>
       <import plugin="javax.inject"/>
-      <import plugin="ru.agentlab.calendar.service.api"/>
-      <import plugin="ru.agentlab.calendar.consumer"/>
-      <import plugin="ru.agentlab.calendar.service.google"/>
    </requires>
 
    <plugin
          id="ru.agentlab.calendar.app"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ru.agentlab.calendar.consumer"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ru.agentlab.calendar.service.api"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ru.agentlab.calendar.service.google"
          download-size="0"
          install-size="0"
          version="0.0.0"
