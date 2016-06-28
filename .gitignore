@@ -1,6 +1,5 @@
 # Dirs With Binaries #
 bin
-lib
 target
 xtend-gen
 classes
@@ -14,7 +13,6 @@ temp
 *.obj
 
 # Package Files #
-*.jar
 *.war
 *.ear
 *.zip
