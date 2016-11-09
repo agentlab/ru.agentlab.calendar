@@ -166,6 +166,8 @@
       <requirement
           name="org.eclipse.equinox.sdk.feature.group"/>
       <requirement
+          name="org.eclipse.swt.dummyfragments.feature.group"/>
+      <requirement
           name="com.codeaffine.osgi.test.util.feature.feature.group"/>
       <requirement
           name="org.junit.feature.feature.group"
@@ -180,6 +182,18 @@
           name="org.eclipse.fx.target.feature.feature.group"/>
       <requirement
           name="org.eclipse.fx.slf4j.target.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.tools.bundle.spy.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.tools.context.spy.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.tools.css.spy.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.tools.event.spy.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.tools.preference.spy.feature.feature.group"/>
+      <requirement
+          name="org.eclipse.e4.tools.model.spy.feature.feature.group"/>
       <sourceLocator
           rootFolder="${ru.agentlab.calendar.git.clone.location}"
           locateNestedProjects="true"/>
@@ -201,9 +215,13 @@
         <repository
             url="http://agentlab.ru/eclipse/update/org.mockito/1.10.19/"/>
         <repository
-            url="http://download.eclipse.org/efxclipse/runtime-released/2.4.0/site"/>
+            url="http://download.eclipse.org/e4/snapshots/org.eclipse.e4.tools/latest"/>
+        <repository
+            url="http://download.eclipse.org/efxclipse/runtime-nightly/site"/>
         <repository
             url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
+        <repository
+            url="http://agentlab.ru/p2/orbit/missing-swt-fragments/"/>
       </repositoryList>
     </targlet>
   </setupTask>
