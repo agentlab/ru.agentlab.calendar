@@ -14,7 +14,6 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="ru.agentlab.calendar.git.clone"
-      location="${ru.agentlab.clone.location}/${ru.agentlab.calendar.git.clone.remoteURI|gitRepository}"
       remoteURI="agentlab/ru.agentlab.calendar">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
@@ -36,7 +35,6 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="com.google.calendar.api.samples.git.clone"
-      location="${ru.agentlab.clone.location}/${com.google.calendar.api.samples.git.clone.remoteURI|gitRepository}"
       remoteURI="google/google-api-java-client-samples"
       pushURI=""
       checkoutBranch="master">
@@ -189,11 +187,11 @@
           rootFolder="${com.google.calendar.api.samples.git.clone.location/calendar-cmdline-sample}"
           locateNestedProjects="true"/>
       <repositoryList
-          name="Mars">
+          name="Neon">
         <repository
             url="http://download.eclipse.org/tools/orbit/downloads/drops/R20160520211859/repository"/>
         <repository
-            url="http://download.eclipse.org/eclipse/updates/4.5"/>
+            url="http://download.eclipse.org/eclipse/updates/4.6"/>
         <repository
             url="http://agentlab.ru/eclipse/update/com.google.jsr305/1.0.0.201502020347"/>
         <repository
