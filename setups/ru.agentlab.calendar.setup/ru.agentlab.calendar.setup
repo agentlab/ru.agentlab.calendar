@@ -191,21 +191,17 @@
         <repository
             url="http://download.eclipse.org/tools/orbit/downloads/drops/R20160520211859/repository"/>
         <repository
-            url="http://download.eclipse.org/eclipse/updates/4.6"/>
-        <repository
             url="http://agentlab.ru/eclipse/update/com.google.jsr305/1.0.0.201502020347"/>
         <repository
             url="http://agentlab.ru/eclipse/update/com.google.guava/18.0.0.201502021635"/>
         <repository
             url="http://fappel.github.io/xiliary"/>
         <repository
-            url="http://agentlab.ru/eclipse/update/org.junit"/>
+            url="http://agentlab.ru/eclipse/update/org.junit/4.12.0/"/>
         <repository
-            url="http://agentlab.ru/eclipse/update/org.mockito"/>
+            url="http://agentlab.ru/eclipse/update/org.mockito/1.10.19/"/>
         <repository
             url="http://download.eclipse.org/efxclipse/runtime-released/2.4.0/site"/>
-        <repository
-            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
       </repositoryList>
     </targlet>
   </setupTask>
