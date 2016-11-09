@@ -194,12 +194,6 @@
           name="org.eclipse.e4.tools.preference.spy.feature.feature.group"/>
       <requirement
           name="org.eclipse.e4.tools.model.spy.feature.feature.group"/>
-      <sourceLocator
-          rootFolder="${ru.agentlab.calendar.git.clone.location}"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${com.google.calendar.api.samples.git.clone.location/calendar-cmdline-sample}"
-          locateNestedProjects="true"/>
       <repositoryList
           name="Neon">
         <repository
@@ -224,6 +218,16 @@
             url="http://agentlab.ru/p2/orbit/missing-swt-fragments/"/>
       </repositoryList>
     </targlet>
+  </setupTask>
+  <setupTask
+      xsi:type="projects:ProjectsImportTask">
+    <sourceLocator
+        rootFolder="${com.google.calendar.api.samples.git.clone.location/calendar-cmdline-sample}"
+        locateNestedProjects="true"/>
+    <sourceLocator
+        rootFolder="${ru.agentlab.calendar.git.clone.location}"
+        locateNestedProjects="true"/>
+    <description></description>
   </setupTask>
   <setupTask
       xsi:type="mylyn:MylynQueriesTask"
