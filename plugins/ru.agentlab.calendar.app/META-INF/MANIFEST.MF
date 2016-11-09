@@ -32,7 +32,7 @@ Service-Component: OSGI-INF/services/theme-default.xml
 Export-Package: ru.agentlab.calendar.app.ui
 Bundle-ClassPath: libs/calendarfx-recurrence-1.3.2.jar,
  libs/calendarfx-view-1.3.2.jar,
- libs/controlsfx-8.40.10.jar,
+ libs/controlsfx-8.40.12.jar,
  libs/fontawesomefx-8.9.jar,
  libs/license4j-1.4.0.jar,
  .
