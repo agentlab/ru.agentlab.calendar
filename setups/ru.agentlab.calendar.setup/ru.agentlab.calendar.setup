@@ -12,19 +12,10 @@
     name="ru.agentlab.calendar.setup"
     label="GoogleCalendar">
   <setupTask
-      xsi:type="setup:VariableTask"
-      id="githubpassword"
-      type="PASSWORD"
-      name="github.user.password"
-      label="Пароль GitHub для задач">
-    <description>Github User Password</description>
-  </setupTask>
-  <setupTask
       xsi:type="git:GitCloneTask"
       id="ru.agentlab.calendar.git.clone"
       location="${ru.agentlab.clone.location}/${ru.agentlab.calendar.git.clone.remoteURI|gitRepository}"
-      remoteURI="agentlab/ru.agentlab.calendar"
-      checkoutBranch="master">
+      remoteURI="agentlab/ru.agentlab.calendar">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
