@@ -267,7 +267,6 @@
       value=""/>
   <setupTask
       xsi:type="setup:VariableTask"
-      id=""
       name="ru.agentlab.calendar.clone.location"
       label="Git repositories location">
     <choice
@@ -308,16 +307,6 @@
       remoteURI="https://github.com/google/google-api-java-client-samples.git"
       pushURI=""
       checkoutBranch="master"/>
-  <setupTask
-      xsi:type="projects:ProjectsImportTask">
-    <sourceLocator
-        rootFolder="${ru.agentlab.calendar.git.clone.location}"
-        locateNestedProjects="true"/>
-    <sourceLocator
-        rootFolder="${com.google.calendar.api.samples.git.clone.location/calendar-cmdline-sample}"
-        locateNestedProjects="true"/>
-    <description></description>
-  </setupTask>
   <setupTask
       xsi:type="setup.targlets:TargletTask">
     <targlet
@@ -443,6 +432,12 @@
           name="org.eclipse.fx.target.feature.feature.group"/>
       <requirement
           name="org.eclipse.fx.slf4j.target.feature.feature.group"/>
+      <sourceLocator
+          rootFolder="${ru.agentlab.calendar.git.clone.location}"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${com.google.calendar.api.samples.git.clone.location/calendar-cmdline-sample}"
+          locateNestedProjects="true"/>
       <repositoryList
           name="Mars">
         <repository
