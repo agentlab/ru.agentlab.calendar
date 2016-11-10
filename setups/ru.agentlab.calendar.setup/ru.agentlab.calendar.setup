@@ -177,6 +177,14 @@
           name="org.eclipse.e4.tools.preference.spy.feature.feature.group"/>
       <requirement
           name="org.eclipse.e4.tools.model.spy.feature.feature.group"/>
+      <requirement
+          name="*"/>
+      <sourceLocator
+          rootFolder="${com.google.calendar.api.samples.git.clone.location/calendar-cmdline-sample}"
+          locateNestedProjects="true"/>
+      <sourceLocator
+          rootFolder="${ru.agentlab.calendar.git.clone.location}"
+          locateNestedProjects="true"/>
       <repositoryList
           name="Neon">
         <repository
@@ -205,22 +213,17 @@
     </targlet>
   </setupTask>
   <setupTask
-      xsi:type="projects:ProjectsImportTask">
-    <sourceLocator
-        rootFolder="${com.google.calendar.api.samples.git.clone.location/calendar-cmdline-sample}"
-        locateNestedProjects="true"/>
-    <sourceLocator
-        rootFolder="${ru.agentlab.calendar.git.clone.location}"
-        locateNestedProjects="true"/>
-    <description></description>
-  </setupTask>
-  <setupTask
       xsi:type="mylyn:MylynQueriesTask"
       connectorKind="github"
       repositoryURL="https://github.com/agentlab/ru.agentlab.calendar"
       userID="${github.user.id}"
       password="${github.user.password}">
-    <query summary="${scope.project.label} Мои открытые задачи">
+    <query summary="${scope.project.label} All Open Tasks">
+      <attribute
+          key="state"
+          value="open::"/>
+    </query>
+    <query summary="${scope.project.label} My Open Tasks">
       <attribute
           key="state"
           value="open::"/>
@@ -228,7 +231,7 @@
           key="assignee"
           value="${github.user.id}"/>
     </query>
-    <query summary="${scope.project.label} Мои закрытые задачи"
+    <query summary="${scope.project.label} My Closed Tasks"
         url="">
       <attribute
           key="state"
