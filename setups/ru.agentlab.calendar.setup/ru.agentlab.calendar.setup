@@ -198,6 +198,8 @@
             url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
         <repository
             url="http://agentlab.ru/p2/orbit/missing-swt-fragments/"/>
+        <repository
+            url="http://download.eclipse.org/eclipse/updates/4.6"/>
       </repositoryList>
     </targlet>
   </setupTask>
