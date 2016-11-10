@@ -144,7 +144,8 @@
           name="com.google.guava.feature.feature.group"
           versionRange="[18.0.0,18.1.0)"/>
       <requirement
-          name="org.eclipse.e4.rcp.feature.group"/>
+          name="org.eclipse.e4.rcp.feature.group"
+          versionRange="[1.5.0,1.5.1)"/>
       <requirement
           name="org.eclipse.equinox.sdk.feature.group"/>
       <requirement
@@ -199,7 +200,7 @@
         <repository
             url="http://agentlab.ru/p2/orbit/missing-swt-fragments/"/>
         <repository
-            url="http://download.eclipse.org/eclipse/updates/4.6"/>
+            url="http://download.eclipse.org/eclipse/updates/4.6/R-4.6-201606061100/"/>
       </repositoryList>
     </targlet>
   </setupTask>
