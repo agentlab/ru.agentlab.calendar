@@ -35,6 +35,7 @@
 							<version>1.0.0-SNAPSHOT</version>
 						</artifact>
 					</target>
+					<resolver>p2</resolver>
 				</configuration>
 			</plugin>		
 		</plugins>

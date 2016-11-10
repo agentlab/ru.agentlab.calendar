@@ -12,6 +12,13 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
+	<modules>
+		<module>ru.agentlab.calendar.app</module>
+		<module>ru.agentlab.calendar.consumer</module>
+		<module>ru.agentlab.calendar.service.api</module>
+		<module>ru.agentlab.calendar.service.google</module>
+	</modules>
+	
 	<build>
 		<plugins>
 			<plugin>
