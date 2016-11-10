@@ -3,7 +3,7 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<artifactId>ru.agentlab.calendar.plugins</artifactId>
+	<artifactId>ru.agentlab.calendar.relengs</artifactId>
 	<packaging>pom</packaging>
 	
 	<parent>
@@ -12,12 +12,8 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-source-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+	<modules>
+		<module>ru.agentlab.calendar.releng</module>
+		<module>ru.agentlab.calendar.app.product</module>
+	</modules>
 </project>

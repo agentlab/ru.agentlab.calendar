@@ -8,8 +8,7 @@
 
 	<parent>
 		<groupId>ru.agentlab.calendar</groupId>
-		<artifactId>ru.agentlab.calendar.parent</artifactId>
-		<relativePath>../ru.agentlab.calendar.parent/pom.xml</relativePath>
+		<artifactId>ru.agentlab.calendar.relengs</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	

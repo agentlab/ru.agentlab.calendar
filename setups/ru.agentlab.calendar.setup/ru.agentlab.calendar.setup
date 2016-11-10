@@ -64,7 +64,7 @@
           source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
         <detail
             key="location">
-          <value>${ru.agentlab.calendar.git.clone.location/releng/ru.agentlab.calendar.target/ru.agentlab.calendar.target.target}</value>
+          <value>${ru.agentlab.calendar.git.clone.location/releng/ru.agentlab.calendar.releng/ru.agentlab.calendar.releng.target}</value>
         </detail>
         <detail
             key="includeAllPlatforms">

@@ -10,11 +10,6 @@
 		<groupId>ru.agentlab.calendar</groupId>
 		<artifactId>ru.agentlab.calendar.releng</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../releng/ru.agentlab.calendar.releng/pom.xml</relativePath>
 	</parent>
 	
-	<build>
-		<plugins>
-		</plugins>
-	</build>
 </project>

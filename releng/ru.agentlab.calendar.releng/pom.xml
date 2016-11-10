@@ -4,44 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<artifactId>ru.agentlab.calendar.releng</artifactId>
-	<packaging>pom</packaging>
+	<packaging>eclipse-target-definition</packaging>
 
 	<parent>
 		<groupId>ru.agentlab.calendar</groupId>
-		<artifactId>ru.agentlab.calendar.parent</artifactId>
-		<relativePath>../ru.agentlab.calendar.parent/pom.xml</relativePath>
+		<artifactId>ru.agentlab.calendar.relengs</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<modules>
-		<module>../ru.agentlab.calendar.target</module>
-		
-		<module>../../plugins/ru.agentlab.calendar.service.api</module>
-		<module>../../plugins/ru.agentlab.calendar.service.google</module>
-		<module>../../plugins/ru.agentlab.calendar.consumer</module>
-		<!--<module>../../plugins/ru.agentlab.calendar.app</module>
-
-		<module>../../features/ru.agentlab.calendar.app.feature</module>
-		<module>../ru.agentlab.calendar.app.product</module>
-		
-		<module>../../tests/ru.agentlab.calendar.service.google.tests</module>-->
-	</modules>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<configuration>
-					<target>
-						<artifact>
-							<groupId>ru.agentlab.calendar</groupId>
-							<artifactId>ru.agentlab.calendar.target</artifactId>
-							<version>1.0.0-SNAPSHOT</version>
-						</artifact>
-					</target>
-				</configuration>
-			</plugin>		
-		</plugins>
-	</build>	
 </project>
