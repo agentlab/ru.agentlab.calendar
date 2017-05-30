@@ -1,3 +1,4 @@
+
 Учебный проект клиента календаря Google на Eclipse RCP с использованием JavaFX
 
 ## Настройка среды разработки Eclipse IDE
@@ -6,7 +7,7 @@
 
   * JDK 8
   * Maven 3.x
-  * Eclipse Installer (для установки см. [Установка Eclipse Installer](https://github.com/agentlab/ru.agentlab.parent/wiki/Установка-Eclipse-Installer))
+  * Eclipse Installer, для установки см. [Установка Eclipse Installer](https://github.com/agentlab/ru.agentlab.parent/wiki/Установка-Eclipse-Installer)
 
 ### Как настроить кастомную сборку Eclipse IDE для этого проекта с помощью Eclipse Installer
 
