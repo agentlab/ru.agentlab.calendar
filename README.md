@@ -34,6 +34,6 @@
 
 1. Запустить в Eclipse на выполнение конфигурацию запуска CalendarSample из раздела Java Applications.
 2. Убедиться в консоли, что пример использования Google Calendar API работает, но требует ID и Secret.
-3. Получить ID и Secret от Calendar API на сайте Google для вашей учетной записи.
+3. Получить ID и Secret от Calendar API на сайте Google для вашей учетной записи [как это описано здесь](https://developers.google.com/google-apps/calendar/auth).
 
 Дальнейшую информацию по проекту см на [Wiki](https://github.com/agentlab/ru.agentlab.calendar/wiki)
