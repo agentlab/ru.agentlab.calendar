@@ -22,7 +22,6 @@ Require-Bundle: org.eclipse.fx.ui.workbench.fx,
  org.eclipse.e4.ui.workbench,
  org.eclipse.e4.ui.services,
  org.eclipse.fx.ui.services,
- org.eclipse.fx.javafx,
  org.eclipse.fx.core.di;bundle-version="2.4.0"
 Import-Package: com.google.common.util.concurrent;version="15.0.0",
  javax.annotation;version="1.0.0",

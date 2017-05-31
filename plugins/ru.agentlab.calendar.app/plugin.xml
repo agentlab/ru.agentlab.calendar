@@ -2,7 +2,7 @@
 <?eclipse version="3.0"?>
 <plugin>
 <extension id="product" point="org.eclipse.core.runtime.products">
-	<product name="ru.agentlab.calendar.product" application="org.eclipse.fx.ui.workbench.fx.application" >
+	<product name="ru.agentlab.calendar.product" application="org.eclipse.fx.ui.workbench.fx.main-thread-application" >
 		<property name="appName" value="ru.agentlab.calendar.product" />
 		
 		<property name="applicationXMI" value="ru.agentlab.calendar.app/Application.e4xmi" />

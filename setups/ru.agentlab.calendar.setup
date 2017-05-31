@@ -59,7 +59,8 @@
       xsi:type="setup.targlets:TargletTask">
     <targlet
         name="${scope.project.label}"
-        activeRepositoryList="${eclipse.target.platform}">
+        activeRepositoryList="${eclipse.target.platform}"
+        includeAllPlatforms="true">
       <annotation
           source="http:/www.eclipse.org/oomph/targlets/TargetDefinitionGenerator">
         <detail
@@ -68,7 +69,7 @@
         </detail>
         <detail
             key="includeAllPlatforms">
-          <value>false</value>
+          <value>true</value>
         </detail>
         <detail
             key="includeSource">
@@ -81,6 +82,10 @@
         <detail
             key="generateImplicitUnits">
           <value>true</value>
+        </detail>
+        <detail
+            key="includeMode">
+          <value>slicer</value>
         </detail>
       </annotation>
       <requirement

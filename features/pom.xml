@@ -14,6 +14,7 @@
 	
 	<modules>
 		<module>ru.agentlab.calendar.app.feature</module>
+		<module>ru.agentlab.calendar.fx.runtime.e4fx.feature</module>
 	</modules>
 
 	<build>
