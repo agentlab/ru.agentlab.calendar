@@ -12,7 +12,7 @@
 	<parent>
 		<groupId>ru.agentlab</groupId>
 		<artifactId>ru.agentlab.parent</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>1.0.1-SNAPSHOT</version>
 	</parent>
 
 	<modules>
@@ -36,6 +36,33 @@
 						</artifact>
 					</target>
 					<resolver>p2</resolver>
+					<environments>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>macosx</os>
+								<ws>cocoa</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>linux</os>
+								<ws>gtk</ws>
+								<arch>x86_64</arch>
+							</environment>
+							<environment>
+								<os>linux</os>
+								<ws>gtk</ws>
+								<arch>x86</arch>
+							</environment>
+							<environment>
+								<os>win32</os>
+								<ws>win32</ws>
+								<arch>x86</arch>
+							</environment>
+					</environments>
 				</configuration>
 			</plugin>		
 		</plugins>
