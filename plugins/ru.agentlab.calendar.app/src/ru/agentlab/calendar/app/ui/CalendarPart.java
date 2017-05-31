@@ -31,11 +31,11 @@ public class CalendarPart {
 	@Inject
 	@FXMLLoader
 	FXMLLoaderFactory factory;
-	
+
 	  @Inject
 	  @Service
 	  private ICalendarService calendar; // all instances available and reinject when services are added/removed
-	
+
 	public CalendarPart() {
 		System.out.println("Hello");
 	}
@@ -54,41 +54,41 @@ public class CalendarPart {
 		Calendar cal = new Calendar("Birthdays");
 		cal.setShortName("K");
 		cal.setStyle(Style.STYLE1);
-			
+
 		CalendarSource myCalendarSource = new CalendarSource("Family");
 		myCalendarSource.getCalendars().clear();
 		myCalendarSource.getCalendars().add(cal);
-		
+
 		EventHandler<CalendarEvent> handler = evt -> foo(evt);
 		myCalendarSource.getCalendars().forEach(c -> c.addEventHandler(handler));
-		
+
 		WeekPage view = new WeekPage();
 		view.getCalendarSources().setAll(myCalendarSource);
 		view.setRequestedTime(LocalTime.now());
 		view.setWeekFields(WeekFields.of(DayOfWeek.SUNDAY, 5));
 		return view;
 	}
-	
+
 	Node initCal() {
 		Calendar cal = new Calendar("Katja");
         cal.setShortName("K");
 		cal.setStyle(Style.STYLE1);
-		
+
 		CalendarSource myCalendarSource = new CalendarSource("Family");
 		myCalendarSource.getCalendars().addAll(cal);
-		
+
 		EventHandler<CalendarEvent> handler = evt -> foo(evt);
 		myCalendarSource.getCalendars().forEach(c -> c.addEventHandler(handler));
-		
+
 		CalendarView view = new CalendarView();
 		view.getCalendarSources().setAll(myCalendarSource);
 		view.setRequestedTime(LocalTime.now());
-		view.setWeekFields(WeekFields.of(DayOfWeek.SUNDAY, 5));          
+		view.setWeekFields(WeekFields.of(DayOfWeek.SUNDAY, 5));
         return view;
 	}
-	
+
 	private Object foo(CalendarEvent evt) {
-		if(evt.getEventType().equals(CalendarEvent.ENTRY_ADDED)) {
+		if(evt.getEventType().equals(CalendarEvent.ENTRY_CHANGED)) {
 			Event event = new Event();
 			event.title= evt.getEntry().getTitle();
 			LocalDate startLocalDate = evt.getEntry().getStartDate();
