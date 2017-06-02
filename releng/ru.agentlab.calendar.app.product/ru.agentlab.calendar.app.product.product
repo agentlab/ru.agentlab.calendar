@@ -31,7 +31,6 @@
       <feature id="ru.agentlab.calendar.app.feature"/>
       <feature id="ru.agentlab.calendar.fx.runtime.e4fx.feature"/>
       <feature id="org.eclipse.equinox.core.feature"/>
-      <feature id="org.eclipse.e4.rcp"/>
    </features>
 
    <configurations>

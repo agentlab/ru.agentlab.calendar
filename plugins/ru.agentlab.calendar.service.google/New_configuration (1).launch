@@ -23,5 +23,5 @@
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="ru.agentlab.calendar.consumer@default:default,ru.agentlab.calendar.service.api@default:default,ru.agentlab.calendar.service.google@default:default"/>
+<stringAttribute key="workspace_bundles" value="ru.agentlab.calendar.app@default:default,ru.agentlab.calendar.consumer@default:default,ru.agentlab.calendar.service.api@default:default,ru.agentlab.calendar.service.google@default:default"/>
 </launchConfiguration>

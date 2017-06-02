@@ -1,102 +1,76 @@
 package ru.agentlab.calendar.app.ui;
 
 import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneId;
 import java.time.temporal.WeekFields;
-import java.util.Date;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
 import org.eclipse.fx.core.di.Service;
-import org.eclipse.fx.ui.di.FXMLLoader;
-import org.eclipse.fx.ui.di.FXMLLoaderFactory;
 
-import com.calendarfx.model.Calendar;
-import com.calendarfx.model.Calendar.Style;
-import com.calendarfx.model.CalendarEvent;
-import com.calendarfx.model.CalendarSource;
 import com.calendarfx.view.CalendarView;
+import com.calendarfx.view.DateControl;
 import com.calendarfx.view.page.WeekPage;
 
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
-import ru.agentlab.calendar.service.api.Event;
-import ru.agentlab.calendar.service.api.ICalendarService;
+import ru.agentlab.calendar.consumer.ICalendarSourceProvider;
 
 public class CalendarPart {
+	/**
+	 * all instances available and reinject when services are added/removed
+	 */
 	@Inject
-	@FXMLLoader
-	FXMLLoaderFactory factory;
+	@Service
+	protected List<ICalendarSourceProvider> calendarServices;
 
-	  @Inject
-	  @Service
-	  private ICalendarService calendar; // all instances available and reinject when services are added/removed
-
-	public CalendarPart() {
-		System.out.println("Hello");
-	}
+	protected DateControl view;
 
 	@PostConstruct
 	void initUI(BorderPane pane) {
 		try {
-			Node node = initWeek();
+			Node node = initCal();
 			pane.setCenter(node);
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
+	@PreDestroy
+	void destroyUI() {
+		if(calendarServices != null) {
+			for (ICalendarSourceProvider provider : calendarServices) {
+				provider.removeView(view);
+			}
+		}
+	}
+
 	Node initWeek() {
-		Calendar cal = new Calendar("Birthdays");
-		cal.setShortName("K");
-		cal.setStyle(Style.STYLE1);
-
-		CalendarSource myCalendarSource = new CalendarSource("Family");
-		myCalendarSource.getCalendars().clear();
-		myCalendarSource.getCalendars().add(cal);
-
-		EventHandler<CalendarEvent> handler = evt -> foo(evt);
-		myCalendarSource.getCalendars().forEach(c -> c.addEventHandler(handler));
-
-		WeekPage view = new WeekPage();
-		view.getCalendarSources().setAll(myCalendarSource);
+		view = new WeekPage();
+		if(calendarServices != null) {
+			for (ICalendarSourceProvider provider : calendarServices) {
+				provider.addView(view);
+			}
+		}
 		view.setRequestedTime(LocalTime.now());
 		view.setWeekFields(WeekFields.of(DayOfWeek.SUNDAY, 5));
 		return view;
 	}
 
 	Node initCal() {
-		Calendar cal = new Calendar("Katja");
-        cal.setShortName("K");
-		cal.setStyle(Style.STYLE1);
-
-		CalendarSource myCalendarSource = new CalendarSource("Family");
-		myCalendarSource.getCalendars().addAll(cal);
-
-		EventHandler<CalendarEvent> handler = evt -> foo(evt);
-		myCalendarSource.getCalendars().forEach(c -> c.addEventHandler(handler));
-
-		CalendarView view = new CalendarView();
-		view.getCalendarSources().setAll(myCalendarSource);
+		view = new CalendarView();
+		((CalendarView)view).setTransitionsEnabled(true);
+		if(calendarServices != null) {
+			for (ICalendarSourceProvider provider : calendarServices) {
+				provider.addView(view);
+			}
+		}
 		view.setRequestedTime(LocalTime.now());
 		view.setWeekFields(WeekFields.of(DayOfWeek.SUNDAY, 5));
-        return view;
-	}
-
-	private Object foo(CalendarEvent evt) {
-		if(evt.getEventType().equals(CalendarEvent.ENTRY_CHANGED)) {
-			Event event = new Event();
-			event.title= evt.getEntry().getTitle();
-			LocalDate startLocalDate = evt.getEntry().getStartDate();
-			event.startDate = Date.from(startLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-			LocalDate endLocalDate = evt.getEntry().getEndDate();
-			event.endDate = Date.from(endLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-			calendar.addEvent(event);
-		}
-		return null;
+		return view;
 	}
 }

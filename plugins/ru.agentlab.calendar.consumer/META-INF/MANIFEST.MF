@@ -6,5 +6,9 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: AgentLab
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Import-Package: ru.agentlab.calendar.service.api
-Service-Component: OSGI-INF/component.xml
+Import-Package: com.calendarfx.model,
+ com.calendarfx.view,
+ com.google.common.collect;version="15.0.0",
+ ru.agentlab.calendar.service.api
+Service-Component: OSGI-INF/ru.agentlab.calendar.consumer.impl.CalendarConsumerImpl.xml
+Export-Package: ru.agentlab.calendar.consumer
