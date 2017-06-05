@@ -2,12 +2,16 @@ package ru.agentlab.calendar.service.google;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TimeZone;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -33,6 +37,7 @@ import com.google.api.services.calendar.model.CalendarListEntry;
 import com.google.api.services.calendar.model.EventDateTime;
 import com.google.api.services.calendar.model.Events;
 
+import ru.agentlab.calendar.service.api.Calendar;
 import ru.agentlab.calendar.service.api.Event;
 import ru.agentlab.calendar.service.api.ICalendarService;
 import ru.agentlab.calendar.service.api.ICalendarServiceConsumer;
@@ -43,7 +48,7 @@ public class GoogleServiceImpl implements ICalendarService {
 	/** Global instance of the HTTP transport. */
 	private static HttpTransport httpTransport;
 
-	ArrayList<ru.agentlab.calendar.service.api.Calendar> calendars = new ArrayList<>();
+	ConcurrentHashMap<String, Calendar> calendars = new ConcurrentHashMap<String, Calendar>();
 
 	private static FileDataStoreFactory dataStoreFactory;
 
@@ -79,8 +84,10 @@ public class GoogleServiceImpl implements ICalendarService {
 	public void addEvent(Event e) {
 		com.google.api.services.calendar.model.Event event = new com.google.api.services.calendar.model.Event();
 		event.setSummary(e.getTitle());
-		DateTime start = new DateTime(e.getStartDate(), TimeZone.getTimeZone("UTC"));
-		DateTime end = new DateTime(e.getEndDate(), TimeZone.getTimeZone("UTC"));
+
+		DateTime start = toDateTime(e.getStartDateTime());
+		DateTime end = toDateTime(e.getEndDateTime());
+
 		event.setStart(new EventDateTime().setDateTime(start));
 		event.setEnd(new EventDateTime().setDateTime(end));
 		try {
@@ -116,21 +123,15 @@ public class GoogleServiceImpl implements ICalendarService {
 			// set up global Calendar instance
 			client = new com.google.api.services.calendar.Calendar.Builder(httpTransport, JSON_FACTORY, credential).setApplicationName(APPLICATION_NAME).build();
 
-			//calendar = client.calendars().get("a.a.aleksandrovskaya@gmail.com").execute(); //$NON-NLS-1$
-
-			CalendarList feed = client.calendarList().list().execute();
-
-			//retrieve existing calendars
-			if (feed.getItems() != null) {
-				for (CalendarListEntry entry : feed.getItems()) {
-					calendars.add(new ru.agentlab.calendar.service.api.Calendar(entry.getId(), entry.getSummary(), entry.getDescription(), this));
-				}
-			}
+			ArrayList<Calendar> newCalendars = getAllCalendars();
 
 			//notify consumers
-			if(!calendars.isEmpty()) {
+			if(!newCalendars.isEmpty()) {
+				for (Calendar calendar : newCalendars) {
+					calendars.put(calendar.getId(), calendar);
+				}
 				for (ICalendarServiceConsumer consumer : consumersList) {
-					consumer.onCalendarsAdded(calendars);
+					consumer.onCalendarsAdded(newCalendars);
 				}
 			}
 		}
@@ -146,7 +147,7 @@ public class GoogleServiceImpl implements ICalendarService {
 	private void addConsumer(ICalendarServiceConsumer consumerService) {
 		consumersList.add(consumerService);
 		if (!calendars.isEmpty()) {
-			consumerService.onCalendarsAdded(calendars);
+			consumerService.onCalendarsAdded(calendars.values());
 		}
 	}
 
@@ -161,28 +162,80 @@ public class GoogleServiceImpl implements ICalendarService {
 	@Override
 	public List<Event> getEvents(String calendarId) throws IOException {
 		List<Event> events = new LinkedList<Event>();
-		Events feed = client.events().list(calendarId).execute();
+		Events feed = client.events().list(calendarId)
+            .setTimeMin(toDateTime(LocalDateTime.
+            	now()
+            //	.minusMonths(1)
+            ))
+            .execute();
+		LocalDateTime ldt;
+
 		if (feed.getItems() != null) {
 			for (com.google.api.services.calendar.model.Event entry : feed.getItems()) {
-				Event e = new Event(entry.getId(), entry.getDescription());
+				Event event = new Event(entry.getId(), entry.getSummary());
+				event.setDescription(entry.getDescription());
+				event.setLocation(entry.getLocation());
+				event.setCalendar(calendars.get(calendarId));
 
 				EventDateTime startDate = entry.getStart();
 				if(startDate != null) {
-					DateTime startDT = startDate.getDate();
-					if(startDT != null) {
-						e.setStartDate(new Date(startDT.getValue()));
+					ldt = toLocalDateTime(startDate);
+					if(ldt != null) {
+						event.setStartDateTime(ldt);
 					}
 				}
 				EventDateTime endDate = entry.getEnd();
 				if(endDate != null) {
-					DateTime endDT = startDate.getDate();
-					if(endDT != null) {
-						e.setEndDate(new Date(endDT.getValue()));
+					ldt = toLocalDateTime(endDate);
+					if(ldt != null) {
+						event.setEndDateTime(ldt);
 					}
 				}
-				events.add(e);
+				List<String> recurrence = entry.getRecurrence();
+				if(recurrence != null) {
+					String rec = ""; //$NON-NLS-1$
+					for (String r : recurrence) {
+						rec += r;
+					}
+					event.setRecurrence(rec);
+				}
+				events.add(event);
 			}
 		}
 		return events;
+	}
+
+	private DateTime toDateTime(LocalDateTime ldt) {
+		Date d = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
+		DateTime start = new DateTime(d, TimeZone.getDefault());
+		return start;
+	}
+
+	protected LocalDateTime toLocalDateTime(EventDateTime edt) {
+		DateTime dt = edt.getDateTime();
+		if (dt == null) {
+			dt = edt.getDate();
+		}
+		if (dt != null) {
+			long epochSecond = dt.getValue();
+			int nanoOfSecond = (int)(epochSecond % 1000 * 1000);
+			epochSecond /= 1000;
+			LocalDateTime ldt = LocalDateTime.ofEpochSecond(epochSecond, nanoOfSecond, ZoneOffset.ofTotalSeconds(dt.getTimeZoneShift() * 60));
+			return ldt;
+		}
+		return null;
+	}
+
+	protected ArrayList<Calendar> getAllCalendars() throws IOException {
+		CalendarList feed = client.calendarList().list().execute();
+		ArrayList<Calendar> calendars = new ArrayList<>();
+
+		//retrieve existing calendars
+		if (feed.getItems() != null) {
+			for (CalendarListEntry entry : feed.getItems()) {
+				calendars.add(new Calendar(entry.getId(), entry.getSummary(), entry.getDescription(), this));
+			}
+		}
+		return calendars;
 	}
 }

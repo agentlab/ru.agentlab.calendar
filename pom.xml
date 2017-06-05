@@ -36,7 +36,7 @@
 						</artifact>
 					</target>
 					<resolver>p2</resolver>
-					<environments>
+<!--					<environments>
 							<environment>
 								<os>win32</os>
 								<ws>win32</ws>
@@ -62,7 +62,7 @@
 								<ws>win32</ws>
 								<arch>x86</arch>
 							</environment>
-					</environments>
+					</environments>-->
 				</configuration>
 			</plugin>		
 		</plugins>

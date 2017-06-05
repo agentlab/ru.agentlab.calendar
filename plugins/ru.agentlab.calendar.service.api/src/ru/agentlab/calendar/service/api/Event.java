@@ -1,6 +1,6 @@
 package ru.agentlab.calendar.service.api;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 public class Event {
 	protected String id;
@@ -9,16 +9,25 @@ public class Event {
 	protected Calendar calendar;
 	protected String description;
 
-	protected Date startDate;
-	protected Date endDate;
+	protected LocalDateTime startDateTime;
+	protected LocalDateTime endDateTime;
+	protected String recurrence;
+
+	protected String location;
 
 	public Event(String description) {
 		setDescription(description);
 	}
 
-	public Event(String id, String description) {
+	public Event(String id, String title) {
 		setId(id);
-		setDescription(description);
+		setTitle(title);
+	}
+
+	public String toString() {
+		String s = new String("Event: "); //$NON-NLS-1$
+		s += title + " " + startDateTime + " " + endDateTime + " " + recurrence; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+		return s;
 	}
 
 	/**
@@ -71,25 +80,49 @@ public class Event {
 	/**
 	 * @return the startDate
 	 */
-	public Date getStartDate() {
-		return startDate;
+	public LocalDateTime getStartDateTime() {
+		return startDateTime;
 	}
 	/**
 	 * @param startDate the startDate to set
 	 */
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+	public void setStartDateTime(LocalDateTime startDateTime) {
+		this.startDateTime = startDateTime;
 	}
 	/**
 	 * @return the endDate
 	 */
-	public Date getEndDate() {
-		return endDate;
+	public LocalDateTime getEndDateTime() {
+		return endDateTime;
 	}
 	/**
 	 * @param endDate the endDate to set
 	 */
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+	public void setEndDateTime(LocalDateTime endDateTime) {
+		this.endDateTime = endDateTime;
+	}
+	/**
+	 * @return the recurrence
+	 */
+	public String getRecurrence() {
+		return recurrence;
+	}
+	/**
+	 * @param recurrence the recurrence to set
+	 */
+	public void setRecurrence(String recurrence) {
+		this.recurrence = recurrence;
+	}
+	/**
+	 * @return the location
+	 */
+	public String getLocation() {
+		return location;
+	}
+	/**
+	 * @param location the location to set
+	 */
+	public void setLocation(String location) {
+		this.location = location;
 	}
 }

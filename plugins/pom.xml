@@ -13,18 +13,25 @@
 	</parent>
 	
 	<modules>
+		<module>com.calendarfx</module>
 		<module>ru.agentlab.calendar.app</module>
 		<module>ru.agentlab.calendar.consumer</module>
 		<module>ru.agentlab.calendar.service.api</module>
 		<module>ru.agentlab.calendar.service.google</module>
 	</modules>
 	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-source-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+	<profiles>
+		<profile>
+			<id>sources</id> 
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho</groupId>
+						<artifactId>tycho-source-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>

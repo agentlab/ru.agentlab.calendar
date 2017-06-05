@@ -1,10 +1,7 @@
 package ru.agentlab.calendar.consumer.impl;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
+import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -39,7 +36,7 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 		CalendarSource fxCalendarSource = new CalendarSource(service.toString());
 		calendarServicesSources.put(service, fxCalendarSource);
 		if(view != null) {
-			Platform.runLater(() -> view.getCalendarSources().setAll(fxCalendarSource));
+			runLater(() -> view.getCalendarSources().setAll(fxCalendarSource));
 		}
 	}
 
@@ -51,11 +48,12 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 	}
 
 	@Override
-	public void onCalendarsAdded(List<Calendar> calendars) {
+	public void onCalendarsAdded(Collection<Calendar> calendars) {
 		for (ru.agentlab.calendar.service.api.Calendar calendar : calendars) {
 			com.calendarfx.model.Calendar fxCal = new com.calendarfx.model.Calendar();
 			fxCal.setShortName(calendar.getId());
-			fxCal.setName(calendar.getDescription());
+			String summary = calendar.getSummary();
+			fxCal.setName(summary);
 			fxCal.setStyle(Style.STYLE1);
 
 			ICalendarService calendarService = calendar.getSourceService();
@@ -66,11 +64,10 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 					calendarServicesSources.values().stream().filter(src -> src.getCalendars().contains(calendar)).findFirst().ifPresent(src2 -> {
 						ICalendarService service = calendarServicesSources.inverse().get(src2);
 
-						Event event = new Event(evt.getEntry().getTitle());
-						LocalDate startLocalDate = evt.getEntry().getStartDate();
-						event.setStartDate(Date.from(startLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
-						LocalDate endLocalDate = evt.getEntry().getEndDate();
-						event.setEndDate(Date.from(endLocalDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+						Entry<?> entry = evt.getEntry();
+						Event event = new Event(entry.getTitle());
+						event.setStartDateTime(entry.getEndAsLocalDateTime());
+						event.setEndDateTime(entry.getStartAsLocalDateTime());
 						try {
 							service.addEvent(event);
 						}
@@ -85,36 +82,51 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 				List<Event> events = calendarService.getEvents(calendar.getId());
 				Collection<Entry<?>> entries = new LinkedList<>();
 				for (Event event : events) {
-					Entry entry = new Entry();
-
+					Entry<String> entry = new Entry<String>();
 					entry.setTitle(event.getTitle());
-					ZoneId defaultZoneId = ZoneId.systemDefault();
+					entry.setId(event.getId());
+					entry.setLocation(event.getLocation());
+					entry.setUserObject(event.getDescription());
+					entry.setRecurrenceRule(event.getRecurrence());
 
-					Date startDate = event.getStartDate();
-					if(startDate != null) {
-						Instant startInstant = startDate.toInstant();
-						LocalDate startLocalDate = startInstant.atZone(defaultZoneId).toLocalDate();
-						entry.changeStartDate(startLocalDate);
+					LocalDateTime startDateTime = event.getStartDateTime();
+					LocalDateTime endDateTime = event.getEndDateTime();
+
+					if((startDateTime != null) && (endDateTime != null)) {
+						entry.setInterval(startDateTime, endDateTime);
 					}
-
-					Date endDate = event.getEndDate();
-					if(endDate != null) {
-						Instant endInstant = endDate.toInstant();
-						LocalDate endLocalDate = endInstant.atZone(defaultZoneId).toLocalDate();
-						entry.changeEndDate(endLocalDate);
+					else {
+						if(startDateTime != null) {
+							entry.changeStartDate(startDateTime.toLocalDate());
+							entry.changeStartTime(startDateTime.toLocalTime());
+						}
+						if(endDateTime != null) {
+							entry.changeEndDate(endDateTime.toLocalDate());
+							entry.changeEndTime(endDateTime.toLocalTime());
+						}
 					}
-
 					entries.add(entry);
 				}
 
 				fxCal.addEntries(entries);
 
-				Platform.runLater(() -> fxCalendarSource.getCalendars().add(fxCal));
+				Runnable r = () -> fxCalendarSource.getCalendars().add(fxCal);
+
+				if(view != null ) {
+					runLater(r);
+				}
+				else {
+					r.run();
+				}
 			}
 			catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	void runLater(Runnable r) {
+		Platform.runLater(r);
 	}
 
 	@Override
@@ -128,14 +140,14 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 	@Override
 	public void addView(DateControl view) {
 		for (CalendarSource fxCalendarSource : calendarServicesSources.values()) {
-			Platform.runLater(() -> view.getCalendarSources().setAll(fxCalendarSource));
+			runLater(() -> view.getCalendarSources().setAll(fxCalendarSource));
 		}
 	}
 
 	@Override
 	public void removeView(DateControl view) {
 		for (CalendarSource fxCalendarSource : calendarServicesSources.values()) {
-			Platform.runLater(() -> view.getCalendarSources().setAll(fxCalendarSource));
+			runLater(() -> view.getCalendarSources().setAll(fxCalendarSource));
 		}
 	}
 }

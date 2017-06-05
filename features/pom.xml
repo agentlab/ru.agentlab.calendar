@@ -16,14 +16,34 @@
 		<module>ru.agentlab.calendar.app.feature</module>
 		<module>ru.agentlab.calendar.fx.runtime.e4fx.feature</module>
 	</modules>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.eclipse.tycho.extras</groupId>
-				<artifactId>tycho-source-feature-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+	
+	<profiles>
+		<profile>
+			<id>sources</id> 
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.tycho.extras</groupId>
+						<artifactId>tycho-source-feature-plugin</artifactId>
+						<executions>
+							<execution>
+								<phase>package</phase>
+								<id>source-feature</id>
+								<goals>
+									<goal>source-feature</goal>
+								</goals>
+								<configuration>
+									<excludes>
+										<plugin id="ru.agentlab.calendar.app"/>
+										<plugin id="com.calendarfx"/>
+									</excludes>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
