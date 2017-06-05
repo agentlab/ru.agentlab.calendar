@@ -1,5 +1,6 @@
 package ru.agentlab.calendar.service.google;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDateTime;
@@ -64,10 +65,9 @@ public class GoogleServiceImpl implements ICalendarService {
 
 	private static Credential authorize() throws Exception {
 		// load client secrets
-		//FileInputStream fis = new FileInputStream("client_secrets.json");
-		//GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(fis));//GoogleServiceImpl.class.getResourceAsStream("/client_secrets.json")));
+		InputStreamReader is = new InputStreamReader(new FileInputStream("client_secrets.json"));//new InputStreamReader(GoogleServiceImpl.class.getResourceAsStream("client_secrets.json")); //$NON-NLS-1$
+		GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, is);
 
-		GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(GoogleServiceImpl.class.getResourceAsStream("client_secrets.json"))); //$NON-NLS-1$
 		if (clientSecrets.getDetails().getClientId().startsWith("Enter") || clientSecrets.getDetails().getClientSecret().startsWith("Enter ")) {
 			System.out.println("Enter Client ID and Secret from https://code.google.com/apis/console/?api=calendar " + "into calendar-cmdline-sample/src/main/resources/client_secrets.json");
 			System.exit(1);

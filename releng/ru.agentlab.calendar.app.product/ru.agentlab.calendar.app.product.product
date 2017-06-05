@@ -3,12 +3,11 @@
 
 <product name="ru.agentlab.calendar.product" uid="ru.agentlab.calendar.app.product" id="ru.agentlab.calendar.app.product" application="org.eclipse.fx.ui.workbench.fx.main-thread-application" version="1.0.0" useFeatures="true" includeLaunchers="true">
 
-
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
-      <programArgs>-nosplash
+      <programArgs>-nosplash -console -debug
       </programArgs>
       <vmArgs>-Dorg.osgi.framework.bundle.parent=ext
       </vmArgs>
@@ -16,17 +15,14 @@
 
    <windowImages/>
 
-
    <launcher name="calendar">
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
 
-
    <vm>
    </vm>
-
 
    <plugins>
    </plugins>
