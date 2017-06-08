@@ -34,3 +34,4 @@ Import-Package: com.calendarfx.view,
 Service-Component: OSGI-INF/services/theme-default.xml
 Export-Package: ru.agentlab.calendar.app.themes,
  ru.agentlab.calendar.app.ui
+Bundle-ActivationPolicy: lazy
