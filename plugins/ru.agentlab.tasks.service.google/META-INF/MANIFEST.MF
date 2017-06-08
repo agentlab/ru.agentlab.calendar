@@ -1,19 +1,17 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Google Calendar Service
-Bundle-SymbolicName: ru.agentlab.calendar.service.google;singleton:=true
+Bundle-Name: Google Tasks Service
+Bundle-SymbolicName: ru.agentlab.tasks.service.google;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Vendor: AgentLab
+Bundle-Vendor: IrinaKozlova
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Import-Package: org.osgi.service.component.annotations;version="1.3.0";resolution:=optional,
+Import-Package: com.google.api.services.calendar.model,
  ru.agentlab.calendar.service.api
 Bundle-ClassPath: .,
  target/dependency/commons-codec-1.3.jar,
  target/dependency/commons-logging-1.1.1.jar,
  target/dependency/google-api-client-1.22.0.jar,
- target/dependency/google-api-services-calendar-v3-rev247-1.22.0.jar,
- target/dependency/google-api-services-tasks-v1-rev47-1.22.0.jar,
  target/dependency/google-http-client-1.22.0.jar,
  target/dependency/google-http-client-jackson2-1.22.0.jar,
  target/dependency/google-oauth-client-1.22.0.jar,
@@ -26,6 +24,6 @@ Bundle-ClassPath: .,
  target/dependency/google-oauth-client-jetty-1.22.0.jar,
  target/dependency/jetty-6.1.26.jar,
  target/dependency/jetty-util-6.1.26.jar,
- target/dependency/servlet-api-2.5-20081211.jar
-Service-Component: OSGI-INF/ru.agentlab.calendar.service.google.GoogleServiceImpl.xml
-Export-Package: com.google.api.services.calendar.model
+ target/dependency/servlet-api-2.5-20081211.jar,
+ target/dependency/google-api-services-tasks-v1-rev47-1.22.0.jar
+Service-Component: OSGI-INF/ru.agentlab.tasks.service.google.GoogleTaskServiceImpl.xml

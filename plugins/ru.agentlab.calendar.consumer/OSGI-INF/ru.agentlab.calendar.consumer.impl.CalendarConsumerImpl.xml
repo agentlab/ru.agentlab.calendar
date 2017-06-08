@@ -4,6 +4,6 @@
       <provide interface="ru.agentlab.calendar.service.api.ICalendarServiceConsumer"/>
       <provide interface="ru.agentlab.calendar.consumer.ICalendarSourceProvider"/>
    </service>
-   <reference bind="addCalendarService" interface="ru.agentlab.calendar.service.api.ICalendarService" name="CalendarService" policy="dynamic" unbind="removeCalendarService"/>
+   <reference bind="addCalendarService" cardinality="0..n" interface="ru.agentlab.calendar.service.api.ICalendarService" name="CalendarService" policy="dynamic" unbind="removeCalendarService"/>
    <implementation class="ru.agentlab.calendar.consumer.impl.CalendarConsumerImpl"/>
 </scr:component>

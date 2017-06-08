@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 
 import com.calendarfx.model.Calendar.Style;
@@ -31,8 +32,18 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 
 	protected CalendarView view;
 
-	@Reference(policy=ReferencePolicy.DYNAMIC)
+	@Reference(policy=ReferencePolicy.DYNAMIC, cardinality=ReferenceCardinality.MULTIPLE)
 	public void addCalendarService(ICalendarService service) {
+		if(calendarServicesSources.containsKey(service)) {
+			if(view != null) {
+				CalendarSource fxCalendarSource = calendarServicesSources.get(service);
+				if(!view.getCalendarSources().contains(fxCalendarSource)) {
+					runLater(() -> view.getCalendarSources().setAll(fxCalendarSource));
+				}
+			}
+			return;
+		}
+
 		CalendarSource fxCalendarSource = new CalendarSource(service.toString());
 		calendarServicesSources.put(service, fxCalendarSource);
 		if(view != null) {
@@ -57,7 +68,14 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 			fxCal.setStyle(Style.STYLE1);
 
 			ICalendarService calendarService = calendar.getSourceService();
-			CalendarSource fxCalendarSource = calendarServicesSources.get(calendarService);
+
+			CalendarSource fxCalendarSource1 = calendarServicesSources.get(calendarService);
+			if(fxCalendarSource1 == null) {
+				addCalendarService(calendarService);
+				fxCalendarSource1 = calendarServicesSources.get(calendarService);
+			}
+
+			CalendarSource fxCalendarSource = fxCalendarSource1;
 
 			fxCal.addEventHandler(evt -> {
 				if (evt.getEventType().equals(CalendarEvent.ENTRY_CHANGED)) {

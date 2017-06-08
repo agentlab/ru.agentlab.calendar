@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="start" deactivate="stop" immediate="true" name="ru.agentlab.tasks.service.google.GoogleTaskServiceImpl">
+   <service>
+      <provide interface="ru.agentlab.calendar.service.api.ICalendarService"/>
+   </service>
+   <reference bind="addConsumer" cardinality="0..n" interface="ru.agentlab.calendar.service.api.ICalendarServiceConsumer" name="Consumer" policy="dynamic" unbind="removeConsumer"/>
+   <implementation class="ru.agentlab.tasks.service.google.GoogleTaskServiceImpl"/>
+</scr:component>
