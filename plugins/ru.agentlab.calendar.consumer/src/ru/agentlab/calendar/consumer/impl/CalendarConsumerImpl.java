@@ -87,7 +87,11 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 					entry.setId(event.getId());
 					entry.setLocation(event.getLocation());
 					entry.setUserObject(event.getDescription());
-					entry.setRecurrenceRule(event.getRecurrence());
+
+					String recurrence = event.getRecurrence();
+					if(recurrence != null && (!recurrence.contains("RDATE"))) { //$NON-NLS-1$
+						entry.setRecurrenceRule(event.getRecurrence());
+					}
 
 					LocalDateTime startDateTime = event.getStartDateTime();
 					LocalDateTime endDateTime = event.getEndDateTime();

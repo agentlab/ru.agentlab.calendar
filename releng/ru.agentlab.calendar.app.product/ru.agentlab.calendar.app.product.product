@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="ru.agentlab.calendar.product" uid="ru.agentlab.calendar.app.product" id="ru.agentlab.calendar.app.product" application="org.eclipse.fx.ui.workbench.fx.main-thread-application" version="1.0.0" useFeatures="true" includeLaunchers="true">
+<product name="ru.agentlab.calendar.product" uid="ru.agentlab.calendar.app.product" id="ru.agentlab.calendar.app.product" application="org.eclipse.fx.ui.workbench.fx.application" version="1.0.0" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -9,6 +9,8 @@
    <launcherArgs>
       <programArgs>-nosplash -console -debug
       </programArgs>
+      <programArgsMac>-XstartOnFirstThread
+      </programArgsMac>
       <vmArgs>-Dorg.osgi.framework.bundle.parent=ext
       </vmArgs>
    </launcherArgs>
@@ -21,16 +23,12 @@
       </win>
    </launcher>
 
-   <vm>
-   </vm>
-
    <plugins>
    </plugins>
 
    <features>
       <feature id="ru.agentlab.calendar.app.feature"/>
       <feature id="ru.agentlab.calendar.fx.runtime.e4fx.feature"/>
-      <feature id="org.eclipse.equinox.core.feature"/>
    </features>
 
    <configurations>
@@ -41,12 +39,5 @@
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
       <plugin id="org.eclipse.osgi" autoStart="true" startLevel="-1" />
    </configurations>
-
-   <preferencesInfo>
-      <targetfile overwrite="false"/>
-   </preferencesInfo>
-
-   <cssInfo>
-   </cssInfo>
 
 </product>

@@ -90,6 +90,8 @@
       </annotation>
       <requirement
           name="*"/>
+      <requirement
+          name="org.eclipse.jdt.annotation"/>
       <sourceLocator
           rootFolder="${com.google.calendar.api.samples.git.clone.location/calendar-cmdline-sample}"
           locateNestedProjects="true"/>

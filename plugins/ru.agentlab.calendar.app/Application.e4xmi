@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmi:id="_Bf7VIC75EeaCJOwo5VaA7w" elementId="org.eclipse.e4.application" bindingContexts="_Bf6uEC75EeaCJOwo5VaA7w">
-  <children xsi:type="basic:Window" xmi:id="_lb1B8DO-EeaSbOhy7r61jQ" elementId="ru.agentlab.calendar.app.window.0">
+  <children xsi:type="basic:Window" xmi:id="_lb1B8DO-EeaSbOhy7r61jQ" elementId="ru.agentlab.calendar.app.window.calendarapplication" label="Calendar Application">
     <children xsi:type="basic:PartStack" xmi:id="_FdPsIDTUEeaSbOhy7r61jQ" elementId="ru.agentlab.calendar.app.partstack.0">
-      <children xsi:type="basic:Part" xmi:id="_G5g10DTUEeaSbOhy7r61jQ" elementId="ru.agentlab.calendar.app.part.calendar" contributionURI="bundleclass://ru.agentlab.calendar.app/ru.agentlab.calendar.app.ui.CalendarPart" label="Calendar" closeable="true"/>
+      <children xsi:type="basic:Part" xmi:id="_G5g10DTUEeaSbOhy7r61jQ" elementId="ru.agentlab.calendar.app.part.calendar" contributionURI="bundleclass://ru.agentlab.calendar.app/ru.agentlab.calendar.app.ui.CalendarPart" label="Calendars" closeable="true"/>
     </children>
     <mainMenu xmi:id="_mn7BoDO-EeaSbOhy7r61jQ" elementId="ru.agentlab.calendar.app.menu.0"/>
   </children>
