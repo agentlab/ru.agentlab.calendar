@@ -1,6 +1,7 @@
 package ru.agentlab.calendar.consumer.impl;
 
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -79,39 +80,7 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 			});
 
 			try {
-				List<Event> events = calendarService.getEvents(calendar.getId());
-				Collection<Entry<?>> entries = new LinkedList<>();
-				for (Event event : events) {
-					Entry<String> entry = new Entry<String>();
-					entry.setTitle(event.getTitle());
-					entry.setId(event.getId());
-					entry.setLocation(event.getLocation());
-					entry.setUserObject(event.getDescription());
-
-					String recurrence = event.getRecurrence();
-					if(recurrence != null && (!recurrence.contains("RDATE"))) { //$NON-NLS-1$
-						entry.setRecurrenceRule(event.getRecurrence());
-					}
-
-					LocalDateTime startDateTime = event.getStartDateTime();
-					LocalDateTime endDateTime = event.getEndDateTime();
-
-					if((startDateTime != null) && (endDateTime != null)) {
-						entry.setInterval(startDateTime, endDateTime);
-					}
-					else {
-						if(startDateTime != null) {
-							entry.changeStartDate(startDateTime.toLocalDate());
-							entry.changeStartTime(startDateTime.toLocalTime());
-						}
-						if(endDateTime != null) {
-							entry.changeEndDate(endDateTime.toLocalDate());
-							entry.changeEndTime(endDateTime.toLocalTime());
-						}
-					}
-					entries.add(entry);
-				}
-
+				Collection<Entry<?>> entries = getEntries(calendar, calendarService);
 				fxCal.addEntries(entries);
 
 				Runnable r = () -> fxCalendarSource.getCalendars().add(fxCal);
@@ -127,6 +96,54 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 				e.printStackTrace();
 			}
 		}
+	}
+
+	/**
+	 * TODO JavaDoc
+	 *
+	 * @param calendar
+	 * @param calendarService
+	 * @return
+	 * @throws Exception
+	 */
+	private Collection<Entry<?>> getEntries(ru.agentlab.calendar.service.api.Calendar calendar, ICalendarService calendarService) throws Exception {
+		List<Event> events = calendarService.getEvents(calendar.getId());
+		Collection<Entry<?>> entries = new LinkedList<>();
+		for (Event event : events) {
+			Entry<String> entry = new Entry<String>();
+			entry.setTitle(event.getTitle());
+			entry.setId(event.getId());
+			entry.setLocation(event.getLocation());
+			entry.setUserObject(event.getDescription());
+
+			String recurrence = event.getRecurrence();
+			if(recurrence != null && (!recurrence.contains("RDATE"))) { //$NON-NLS-1$
+				entry.setRecurrenceRule(event.getRecurrence());
+			}
+
+			LocalDateTime startDateTime = event.getStartDateTime();
+			LocalDateTime endDateTime = event.getEndDateTime();
+
+			if((startDateTime != null) && (endDateTime != null)) {
+				entry.setInterval(startDateTime, endDateTime);
+
+				Period p = Period.between(startDateTime.toLocalDate(), endDateTime.toLocalDate());
+				if(p.getDays() > 0)
+					entry.setFullDay(true);
+			}
+			else {
+				if(startDateTime != null) {
+					entry.changeStartDate(startDateTime.toLocalDate());
+					entry.changeStartTime(startDateTime.toLocalTime());
+				}
+				if(endDateTime != null) {
+					entry.changeEndDate(endDateTime.toLocalDate());
+					entry.changeEndTime(endDateTime.toLocalTime());
+				}
+			}
+			entries.add(entry);
+		}
+		return entries;
 	}
 
 	void runLater(Runnable r) {
