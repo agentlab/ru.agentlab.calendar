@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="ru.agentlab.calendar.consumer.impl.CalendarConsumerImpl">
    <service>
-      <provide interface="ru.agentlab.calendar.service.api.ICalendarServiceConsumer"/>
       <provide interface="ru.agentlab.calendar.consumer.ICalendarSourceProvider"/>
    </service>
-   <reference bind="addCalendarService" interface="ru.agentlab.calendar.service.api.ICalendarService" name="CalendarService" policy="dynamic" unbind="removeCalendarService"/>
+   <reference bind="addCalendarService" cardinality="0..n" interface="ru.agentlab.calendar.service.api.ICalendarService" name="CalendarService" policy="dynamic" unbind="removeCalendarService"/>
    <implementation class="ru.agentlab.calendar.consumer.impl.CalendarConsumerImpl"/>
 </scr:component>

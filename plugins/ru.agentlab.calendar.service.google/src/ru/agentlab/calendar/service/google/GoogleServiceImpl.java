@@ -12,14 +12,10 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TimeZone;
-import java.util.concurrent.ConcurrentHashMap;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.component.annotations.ReferenceCardinality;
-import org.osgi.service.component.annotations.ReferencePolicy;
 
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
@@ -41,15 +37,12 @@ import com.google.api.services.calendar.model.Events;
 import ru.agentlab.calendar.service.api.Calendar;
 import ru.agentlab.calendar.service.api.Event;
 import ru.agentlab.calendar.service.api.ICalendarService;
-import ru.agentlab.calendar.service.api.ICalendarServiceConsumer;
 
 @Component(immediate=true)
 public class GoogleServiceImpl implements ICalendarService {
 
 	/** Global instance of the HTTP transport. */
 	private static HttpTransport httpTransport;
-
-	ConcurrentHashMap<String, Calendar> calendars = new ConcurrentHashMap<String, Calendar>();
 
 	private static FileDataStoreFactory dataStoreFactory;
 
@@ -60,8 +53,6 @@ public class GoogleServiceImpl implements ICalendarService {
 	private static final String APPLICATION_NAME = "";
 
 	private static final java.io.File DATA_STORE_DIR = new java.io.File(System.getProperty("user.home"), ".store/calendar_sample");
-
-	protected ArrayList<ICalendarServiceConsumer> consumersList = new ArrayList<>();
 
 	private static Credential authorize() throws Exception {
 		// load client secrets
@@ -91,7 +82,7 @@ public class GoogleServiceImpl implements ICalendarService {
 		event.setStart(new EventDateTime().setDateTime(start));
 		event.setEnd(new EventDateTime().setDateTime(end));
 		try {
-			com.google.api.services.calendar.model.Event result = client.events().insert(e.getCalendar().getId(), event).execute();
+			com.google.api.services.calendar.model.Event result = client.events().insert(e.getCalendarId(), event).execute();
 		}
 		catch (IOException evt) {
 			System.err.println(evt.getMessage());
@@ -101,7 +92,7 @@ public class GoogleServiceImpl implements ICalendarService {
 	@Override
 	public void deleteEvent(Event e) {
 		try {
-			client.events().delete(e.getCalendar().getId(), e.getId()).execute();
+			client.events().delete(e.getCalendarId(), e.getId()).execute();
 		}
 		catch (IOException evt) {
 			System.err.println(evt.getMessage());
@@ -122,18 +113,6 @@ public class GoogleServiceImpl implements ICalendarService {
 
 			// set up global Calendar instance
 			client = new com.google.api.services.calendar.Calendar.Builder(httpTransport, JSON_FACTORY, credential).setApplicationName(APPLICATION_NAME).build();
-
-			ArrayList<Calendar> newCalendars = getAllCalendars();
-
-			//notify consumers
-			if(!newCalendars.isEmpty()) {
-				for (Calendar calendar : newCalendars) {
-					calendars.put(calendar.getId(), calendar);
-				}
-				for (ICalendarServiceConsumer consumer : consumersList) {
-					consumer.onCalendarsAdded(newCalendars);
-				}
-			}
 		}
 		catch (IOException e) {
 			System.err.println(e.getMessage());
@@ -143,20 +122,22 @@ public class GoogleServiceImpl implements ICalendarService {
 		}
 	}
 
-	@Reference(policy=ReferencePolicy.DYNAMIC, cardinality=ReferenceCardinality.MULTIPLE)
-	private void addConsumer(ICalendarServiceConsumer consumerService) {
-		consumersList.add(consumerService);
-		if (!calendars.isEmpty()) {
-			consumerService.onCalendarsAdded(calendars.values());
-		}
-	}
-
-	private void removeConsumer(ICalendarServiceConsumer consumerService) {
-		consumersList.remove(consumerService);
-	}
-
 	@Deactivate
 	private void stop() {
+	}
+
+	@Override
+	public List<Calendar> getCalendars() throws Exception {
+		CalendarList feed = client.calendarList().list().execute();
+		ArrayList<Calendar> calendars = new ArrayList<>();
+
+		//retrieve existing calendars
+		if (feed.getItems() != null) {
+			for (CalendarListEntry entry : feed.getItems()) {
+				calendars.add(new Calendar(entry.getId(), entry.getSummary(), entry.getDescription(), this));
+			}
+		}
+		return calendars;
 	}
 
 	@Override
@@ -175,7 +156,7 @@ public class GoogleServiceImpl implements ICalendarService {
 				Event event = new Event(entry.getId(), entry.getSummary());
 				event.setDescription(entry.getDescription());
 				event.setLocation(entry.getLocation());
-				event.setCalendar(calendars.get(calendarId));
+				event.setCalendarId(calendarId);
 
 				EventDateTime startDate = entry.getStart();
 				if(startDate != null) {
@@ -205,6 +186,8 @@ public class GoogleServiceImpl implements ICalendarService {
 		return events;
 	}
 
+
+
 	private DateTime toDateTime(LocalDateTime ldt) {
 		Date d = Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
 		DateTime start = new DateTime(d, TimeZone.getDefault());
@@ -224,18 +207,5 @@ public class GoogleServiceImpl implements ICalendarService {
 			return ldt;
 		}
 		return null;
-	}
-
-	protected ArrayList<Calendar> getAllCalendars() throws IOException {
-		CalendarList feed = client.calendarList().list().execute();
-		ArrayList<Calendar> calendars = new ArrayList<>();
-
-		//retrieve existing calendars
-		if (feed.getItems() != null) {
-			for (CalendarListEntry entry : feed.getItems()) {
-				calendars.add(new Calendar(entry.getId(), entry.getSummary(), entry.getDescription(), this));
-			}
-		}
-		return calendars;
 	}
 }

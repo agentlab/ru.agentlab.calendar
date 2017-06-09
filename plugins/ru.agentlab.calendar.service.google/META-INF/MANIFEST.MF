@@ -28,3 +28,4 @@ Bundle-ClassPath: .,
  target/dependency/jetty-util-6.1.26.jar,
  target/dependency/servlet-api-2.5-20081211.jar
 Service-Component: OSGI-INF/ru.agentlab.calendar.service.google.GoogleServiceImpl.xml
+Export-Package: com.google.api.services.calendar.model

@@ -8,48 +8,60 @@ import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 
 import com.calendarfx.model.Calendar.Style;
 import com.calendarfx.model.CalendarEvent;
 import com.calendarfx.model.CalendarSource;
 import com.calendarfx.model.Entry;
-import com.calendarfx.view.CalendarView;
-import com.calendarfx.view.DateControl;
 import com.google.common.collect.HashBiMap;
 
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import ru.agentlab.calendar.consumer.ICalendarSourceProvider;
 import ru.agentlab.calendar.service.api.Calendar;
 import ru.agentlab.calendar.service.api.Event;
 import ru.agentlab.calendar.service.api.ICalendarService;
-import ru.agentlab.calendar.service.api.ICalendarServiceConsumer;
 
 @Component
-public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendarSourceProvider {
+public class CalendarConsumerImpl implements ICalendarSourceProvider {
 
 	protected HashBiMap<ICalendarService, CalendarSource> calendarServicesSources = HashBiMap.create(1);
 
-	protected CalendarView view;
+	protected ObservableList<CalendarSource> viewSources;
 
-	@Reference(policy=ReferencePolicy.DYNAMIC)
+
+	@Reference(policy=ReferencePolicy.DYNAMIC, cardinality=ReferenceCardinality.MULTIPLE)
 	public void addCalendarService(ICalendarService service) {
-		CalendarSource fxCalendarSource = new CalendarSource(service.toString());
-		calendarServicesSources.put(service, fxCalendarSource);
-		if(view != null) {
-			runLater(() -> view.getCalendarSources().setAll(fxCalendarSource));
+		if(calendarServicesSources.containsKey(service)) {
+			return;
+		}
+
+		try {
+			CalendarSource fxCalendarSource = getAllEvents(service);
+			calendarServicesSources.put(service, fxCalendarSource);
+
+			if(viewSources != null) {
+				runLater(() -> viewSources.addAll(fxCalendarSource));
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
 	public void removeCalendarService(ICalendarService service) {
 		CalendarSource fxCalendarSource = calendarServicesSources.remove(service);
-		if(view != null) {
-			view.getCalendarSources().removeAll(fxCalendarSource);
+		if(viewSources != null) {
+			viewSources.removeAll(fxCalendarSource);
 		}
 	}
 
-	@Override
-	public void onCalendarsAdded(Collection<Calendar> calendars) {
+	public CalendarSource getAllEvents(ICalendarService service) throws Exception {
+		Collection<Calendar> calendars = service.getCalendars();
+		CalendarSource fxCalendarSource = new CalendarSource(service.toString());
+
 		for (ru.agentlab.calendar.service.api.Calendar calendar : calendars) {
 			com.calendarfx.model.Calendar fxCal = new com.calendarfx.model.Calendar();
 			fxCal.setShortName(calendar.getId());
@@ -57,20 +69,22 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 			fxCal.setName(summary);
 			fxCal.setStyle(Style.STYLE1);
 
-			ICalendarService calendarService = calendar.getSourceService();
-			CalendarSource fxCalendarSource = calendarServicesSources.get(calendarService);
+			if(fxCalendarSource == null) {
+				addCalendarService(service);
+				fxCalendarSource = calendarServicesSources.get(service);
+			}
 
 			fxCal.addEventHandler(evt -> {
 				if (evt.getEventType().equals(CalendarEvent.ENTRY_CHANGED)) {
 					calendarServicesSources.values().stream().filter(src -> src.getCalendars().contains(calendar)).findFirst().ifPresent(src2 -> {
-						ICalendarService service = calendarServicesSources.inverse().get(src2);
+						ICalendarService service2 = calendarServicesSources.inverse().get(src2);
 
 						Entry<?> entry = evt.getEntry();
 						Event event = new Event(entry.getTitle());
 						event.setStartDateTime(entry.getEndAsLocalDateTime());
 						event.setEndDateTime(entry.getStartAsLocalDateTime());
 						try {
-							service.addEvent(event);
+							service2.addEvent(event);
 						}
 						catch (Exception e) {
 							e.printStackTrace();
@@ -80,12 +94,50 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 			});
 
 			try {
-				Collection<Entry<?>> entries = getEntries(calendar, calendarService);
+				List<Event> events = service.getEvents(calendar.getId());
+				Collection<Entry<?>> entries = new LinkedList<>();
+
+				for (Event event : events) {
+					Entry<String> entry = new Entry<String>();
+					entry.setTitle(event.getTitle());
+					entry.setId(event.getId());
+					entry.setLocation(event.getLocation());
+					entry.setUserObject(event.getDescription());
+
+					String recurrence = event.getRecurrence();
+					if(recurrence != null && (!recurrence.contains("RDATE"))) { //$NON-NLS-1$
+						entry.setRecurrenceRule(event.getRecurrence());
+					}
+
+					LocalDateTime startDateTime = event.getStartDateTime();
+					LocalDateTime endDateTime = event.getEndDateTime();
+
+					if((startDateTime != null) && (endDateTime != null)) {
+						entry.setInterval(startDateTime, endDateTime);
+
+						Period p = Period.between(startDateTime.toLocalDate(), endDateTime.toLocalDate());
+						if(p.getDays() > 0)
+							entry.setFullDay(true);
+					}
+					else {
+						if(startDateTime != null) {
+							entry.changeStartDate(startDateTime.toLocalDate());
+							entry.changeStartTime(startDateTime.toLocalTime());
+						}
+						if(endDateTime != null) {
+							entry.changeEndDate(endDateTime.toLocalDate());
+							entry.changeEndTime(endDateTime.toLocalTime());
+						}
+					}
+					entries.add(entry);
+				}
+
 				fxCal.addEntries(entries);
 
-				Runnable r = () -> fxCalendarSource.getCalendars().add(fxCal);
+				CalendarSource fxCalendarSource2 = fxCalendarSource;
+				Runnable r = () -> fxCalendarSource2.getCalendars().add(fxCal);
 
-				if(view != null ) {
+				if(viewSources != null ) {
 					runLater(r);
 				}
 				else {
@@ -96,54 +148,7 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 				e.printStackTrace();
 			}
 		}
-	}
-
-	/**
-	 * TODO JavaDoc
-	 *
-	 * @param calendar
-	 * @param calendarService
-	 * @return
-	 * @throws Exception
-	 */
-	private Collection<Entry<?>> getEntries(ru.agentlab.calendar.service.api.Calendar calendar, ICalendarService calendarService) throws Exception {
-		List<Event> events = calendarService.getEvents(calendar.getId());
-		Collection<Entry<?>> entries = new LinkedList<>();
-		for (Event event : events) {
-			Entry<String> entry = new Entry<String>();
-			entry.setTitle(event.getTitle());
-			entry.setId(event.getId());
-			entry.setLocation(event.getLocation());
-			entry.setUserObject(event.getDescription());
-
-			String recurrence = event.getRecurrence();
-			if(recurrence != null && (!recurrence.contains("RDATE"))) { //$NON-NLS-1$
-				entry.setRecurrenceRule(event.getRecurrence());
-			}
-
-			LocalDateTime startDateTime = event.getStartDateTime();
-			LocalDateTime endDateTime = event.getEndDateTime();
-
-			if((startDateTime != null) && (endDateTime != null)) {
-				entry.setInterval(startDateTime, endDateTime);
-
-				Period p = Period.between(startDateTime.toLocalDate(), endDateTime.toLocalDate());
-				if(p.getDays() > 0)
-					entry.setFullDay(true);
-			}
-			else {
-				if(startDateTime != null) {
-					entry.changeStartDate(startDateTime.toLocalDate());
-					entry.changeStartTime(startDateTime.toLocalTime());
-				}
-				if(endDateTime != null) {
-					entry.changeEndDate(endDateTime.toLocalDate());
-					entry.changeEndTime(endDateTime.toLocalTime());
-				}
-			}
-			entries.add(entry);
-		}
-		return entries;
+		return fxCalendarSource;
 	}
 
 	void runLater(Runnable r) {
@@ -151,24 +156,15 @@ public class CalendarConsumerImpl implements ICalendarServiceConsumer, ICalendar
 	}
 
 	@Override
-	public void onEventAdded(Event e) {
-	}
-
-	@Override
-	public void onEventDeleted(Event e) {
-	}
-
-	@Override
-	public void addView(DateControl view) {
+	public void addCalendarSources(ObservableList<CalendarSource> calendarSources) {
+		viewSources = calendarSources;
 		for (CalendarSource fxCalendarSource : calendarServicesSources.values()) {
-			runLater(() -> view.getCalendarSources().setAll(fxCalendarSource));
+			runLater(() -> viewSources.addAll(fxCalendarSource));
 		}
 	}
 
 	@Override
-	public void removeView(DateControl view) {
-		for (CalendarSource fxCalendarSource : calendarServicesSources.values()) {
-			runLater(() -> view.getCalendarSources().setAll(fxCalendarSource));
-		}
+	public void removeCalendarSources(ObservableList<CalendarSource> calendarSources) {
+		runLater(() -> calendarSources.clear());
 	}
 }

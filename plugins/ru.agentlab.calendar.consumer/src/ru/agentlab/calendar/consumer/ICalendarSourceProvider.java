@@ -3,7 +3,9 @@
  */
 package ru.agentlab.calendar.consumer;
 
-import com.calendarfx.view.DateControl;
+import com.calendarfx.model.CalendarSource;
+
+import javafx.collections.ObservableList;
 
 /**
  * @author Ivanov_AM
@@ -11,13 +13,7 @@ import com.calendarfx.view.DateControl;
  */
 public interface ICalendarSourceProvider {
 
-	/**
-	 * TODO JavaDoc
-	 *
-	 * @param view
-	 */
-	void addView(DateControl view);
+	void addCalendarSources(ObservableList<CalendarSource> calendarSources);
 
-	void removeView(DateControl view);
-
+	void removeCalendarSources(ObservableList<CalendarSource> calendarSources);
 }

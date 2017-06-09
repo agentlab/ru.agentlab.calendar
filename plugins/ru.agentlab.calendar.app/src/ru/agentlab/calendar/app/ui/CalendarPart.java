@@ -44,7 +44,7 @@ public class CalendarPart {
 	void destroyUI() {
 		if(calendarServices != null) {
 			for (ICalendarSourceProvider provider : calendarServices) {
-				provider.removeView(view);
+				provider.removeCalendarSources(view.getCalendarSources());
 			}
 		}
 	}
@@ -53,7 +53,7 @@ public class CalendarPart {
 		view = new WeekPage();
 		if(calendarServices != null) {
 			for (ICalendarSourceProvider provider : calendarServices) {
-				provider.addView(view);
+				provider.addCalendarSources(view.getCalendarSources());
 			}
 		}
 		view.setRequestedTime(LocalTime.now());
@@ -66,7 +66,7 @@ public class CalendarPart {
 		((CalendarView)view).setTransitionsEnabled(true);
 		if(calendarServices != null) {
 			for (ICalendarSourceProvider provider : calendarServices) {
-				provider.addView(view);
+				provider.addCalendarSources(view.getCalendarSources());
 			}
 		}
 		view.setRequestedTime(LocalTime.now());

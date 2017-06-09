@@ -1,52 +1,81 @@
 package ru.agentlab.calendar.service.google.tests;
 
 import static com.codeaffine.osgi.test.util.ServiceCollector.collectServices;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import com.calendarfx.model.CalendarSource;
 import com.codeaffine.osgi.test.util.Registration;
 import com.codeaffine.osgi.test.util.ServiceRegistrationRule;
 
-import ru.agentlab.calendar.service.api.Event;
+import javafx.collections.ObservableList;
+import ru.agentlab.calendar.consumer.ICalendarSourceProvider;
+import ru.agentlab.calendar.consumer.impl.CalendarConsumerImpl;
+import ru.agentlab.calendar.service.api.Calendar;
 import ru.agentlab.calendar.service.api.ICalendarService;
-import ru.agentlab.calendar.service.api.ICalendarServiceConsumer;
-import ru.agentlab.calendar.service.google.GoogleServiceImpl;
 
+/**
+ * OSGi Declarative Services unit tests example based on
+ *
+ * http://www.codeaffine.com/2015/02/11/osgi-service-test-helper-serviceregistrationrule/
+ * http://www.codeaffine.com/2015/02/05/osgi-service-test-helper-servicecollector/
+ *
+ * @author amivanoff
+ *
+ */
 public class CalendarServiceTest {
 	@Rule
 	public final ServiceRegistrationRule serviceRegistration = new ServiceRegistrationRule(getClass());
 
-	private ICalendarServiceConsumer consumer;
+	private ICalendarSourceProvider consumer;
 	private ICalendarService service;
+	private ObservableList<CalendarSource> viewSources;
 
 	@Before
 	public void setUp() {
-		service = collectServices(ICalendarService.class, GoogleServiceImpl.class).get(0);
-		consumer = mock(ICalendarServiceConsumer.class);
+		//get specific service implementation from SCR
+		//(this is Fragment, so we have access to the Host internal packages with implementation classes)
+		consumer = collectServices(ICalendarSourceProvider.class, CalendarConsumerImpl.class).get(0);
 	}
 
 	@Test
 	public void executeNotification() throws Exception {
-		serviceRegistration.register(ICalendarServiceConsumer.class, consumer);
+		//create two mocked objects with Mockito from interface and abstract class
+		service = mock(ICalendarService.class);
+		viewSources = mock(ObservableList.class);
 
-		Event event = new Event(""); //$NON-NLS-1$
-		assertNotNull("True is OK", event); //$NON-NLS-1$
+		//define return value for method getCalendars()
+		List<Calendar> calendars = new ArrayList<Calendar>();
+		calendars.add(new Calendar("sdfs-234", "summary", "description", service));
+        when(service.getCalendars()).thenReturn(calendars);
 
-		service.addEvent(event);
-		verify(consumer).onEventAdded(event);
-	}
+		//add mocked object
+		consumer.addCalendarSources(viewSources);
 
-	@Test
-	public void executeAfterListenerRemoval() throws Exception {
-		Registration<?> registration = serviceRegistration.register(ICalendarServiceConsumer.class, consumer);
+		//register mocked object as a component in SCR
+		Registration<?> registration = serviceRegistration.register(ICalendarService.class, service);
+
+		assertEquals(calendars.get(0).getId(), viewSources.get(0).getCalendars().get(0).getShortName());
+		//verify(viewSources).get(0).getCalendars().get(0).onEventAdded(event);
+
 		registration.unregister();
-		service.addEvent(null);
-		verify(consumer, never()).onEventAdded(null);
 	}
+
+//	@Test
+//	public void executeAfterListenerRemoval() throws Exception {
+//		Registration<?> registration = serviceRegistration.register(ICalendarService.class, service);
+//		registration.unregister();
+//		service.addEvent(null);
+//		verify(consumer, never()).onEventAdded(null);
+//
+//		registration.unregister();
+//	}
 }

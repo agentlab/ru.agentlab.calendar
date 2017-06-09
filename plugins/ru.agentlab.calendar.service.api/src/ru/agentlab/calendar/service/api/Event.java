@@ -6,7 +6,7 @@ public class Event {
 	protected String id;
 	protected String title;
 
-	protected Calendar calendar;
+	protected String calendarId;
 	protected String description;
 
 	protected LocalDateTime startDateTime;
@@ -54,16 +54,16 @@ public class Event {
 		this.title = title;
 	}
 	/**
-	 * @return the calendar
+	 * @return the calendarId
 	 */
-	public Calendar getCalendar() {
-		return calendar;
+	public String getCalendarId() {
+		return calendarId;
 	}
 	/**
-	 * @param calendar the calendar to set
+	 * @param calendarId the calendar to set
 	 */
-	public void setCalendar(Calendar calendar) {
-		this.calendar = calendar;
+	public void setCalendarId(String calendarId) {
+		this.calendarId = calendarId;
 	}
 	/**
 	 * @return the description
