@@ -13,3 +13,4 @@ Import-Package: com.calendarfx.model,
  ru.agentlab.calendar.service.api
 Service-Component: OSGI-INF/ru.agentlab.calendar.consumer.impl.CalendarConsumerImpl.xml
 Export-Package: ru.agentlab.calendar.consumer
+Automatic-Module-Name: ru.agentlab.calendar.consumer

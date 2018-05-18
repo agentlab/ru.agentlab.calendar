@@ -29,3 +29,4 @@ Bundle-ClassPath: .,
  target/dependency/servlet-api-2.5-20081211.jar
 Service-Component: OSGI-INF/ru.agentlab.calendar.service.google.GoogleServiceImpl.xml
 Export-Package: com.google.api.services.calendar.model
+Automatic-Module-Name: ru.agentlab.calendar.service.google

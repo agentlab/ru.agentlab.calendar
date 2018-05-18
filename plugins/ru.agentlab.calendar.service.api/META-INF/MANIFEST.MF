@@ -7,3 +7,4 @@ Bundle-Vendor: AgentLab
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: ru.agentlab.calendar.service.api
+Automatic-Module-Name: ru.agentlab.calendar.service.api

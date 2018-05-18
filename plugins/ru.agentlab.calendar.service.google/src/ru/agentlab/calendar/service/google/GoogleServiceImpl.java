@@ -60,7 +60,7 @@ public class GoogleServiceImpl implements ICalendarService {
 		GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, is);
 
 		if (clientSecrets.getDetails().getClientId().startsWith("Enter") || clientSecrets.getDetails().getClientSecret().startsWith("Enter ")) {
-			System.out.println("Enter Client ID and Secret from https://code.google.com/apis/console/?api=calendar " + "into calendar-cmdline-sample/src/main/resources/client_secrets.json");
+			System.out.println("Enter Client ID and Secret from https://code.google.com/apis/console/?api=calendar " + "into working dir with name client_secrets.json");
 			System.exit(1);
 		}
 

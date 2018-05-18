@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Calendar FX
 Bundle-SymbolicName: com.calendarfx
-Bundle-Version: 8.40.12.qualifier
+Bundle-Version: 8.40.13.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.calendarfx.model,
@@ -27,9 +27,10 @@ Export-Package: com.calendarfx.model,
  org.controlsfx.validation,
  org.controlsfx.validation.decoration
 Bundle-ClassPath: .,
- libs/calendarfx-recurrence-8.4.0.jar,
- libs/calendarfx-view-8.4.0.jar,
- libs/controlsfx-8.40.12.jar,
- libs/fontawesomefx-commons-8.13.jar,
- libs/fontawesomefx-fontawesome-4.7.0-1.jar,
- libs/license4j-1.4.0.jar
+ target/dependency/recurrence-8.4.2.jar,
+ target/dependency/view-8.4.2.jar,
+ target/dependency/controlsfx-8.40.13.jar,
+ target/dependency/fontawesomefx-commons-8.13.jar,
+ target/dependency/fontawesomefx-fontawesome-4.7.0-1.jar,
+ target/dependency/joda-time-2.9.1.jar
+Automatic-Module-Name: com.calendarfx
