@@ -7,8 +7,13 @@ import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+import javax.swing.SwingUtilities;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -16,7 +21,9 @@ import com.calendarfx.model.CalendarSource;
 import com.codeaffine.osgi.test.util.Registration;
 import com.codeaffine.osgi.test.util.ServiceRegistrationRule;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.JFXPanel;
 import ru.agentlab.calendar.consumer.ICalendarSourceProvider;
 import ru.agentlab.calendar.consumer.impl.CalendarConsumerImpl;
 import ru.agentlab.calendar.service.api.Calendar;
@@ -39,6 +46,19 @@ public class CalendarServiceTest {
 	private ICalendarService service;
 	private ObservableList<CalendarSource> viewSources;
 
+	@BeforeClass
+    public static void initToolkit() throws InterruptedException {
+        final CountDownLatch latch = new CountDownLatch(1);
+        SwingUtilities.invokeLater(() -> {
+            new JFXPanel(); // initializes JavaFX environment
+            latch.countDown();
+        });
+
+        // That's a pretty reasonable delay... Right?
+        if (!latch.await(5L, TimeUnit.SECONDS))
+            throw new ExceptionInInitializerError();
+    }
+
 	@Before
 	public void setUp() {
 		//get specific service implementation from SCR
@@ -50,21 +70,24 @@ public class CalendarServiceTest {
 	public void executeNotification() throws Exception {
 		//create two mocked objects with Mockito from interface and abstract class
 		service = mock(ICalendarService.class);
-		viewSources = mock(ObservableList.class);
 
 		//define return value for method getCalendars()
 		List<Calendar> calendars = new ArrayList<Calendar>();
 		calendars.add(new Calendar("sdfs-234", "summary", "description", service));
         when(service.getCalendars()).thenReturn(calendars);
 
-		//add mocked object
+		//add collection for results
+        ObservableList<CalendarSource> viewSources = FXCollections.observableArrayList();
 		consumer.addCalendarSources(viewSources);
 
-		//register mocked object as a component in SCR
+		//register mocked service object as a component in SCR
 		Registration<?> registration = serviceRegistration.register(ICalendarService.class, service);
 
-		assertEquals(calendars.get(0).getId(), viewSources.get(0).getCalendars().get(0).getShortName());
-		//verify(viewSources).get(0).getCalendars().get(0).onEventAdded(event);
+		Thread.sleep(1000);  //wait for async Platform.runLater() update call
+
+		//check test results
+		com.calendarfx.model.Calendar addedCalendar = viewSources.get(0).getCalendars().get(0);
+		assertEquals(calendars.get(0).getId(), addedCalendar.getShortName());
 
 		registration.unregister();
 	}
