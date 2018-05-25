@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Calendar FX
 Bundle-SymbolicName: com.calendarfx
-Bundle-Version: 8.40.13.qualifier
+Bundle-Version: 8.4.2.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: com.calendarfx.model,
