@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?pde version="3.8"?>
-<target name="Generated from GoogleCalendar" sequenceNumber="66">
+<target name="Generated from GoogleCalendar" sequenceNumber="68">
   <locations>
     <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
       <unit id="ch.qos.logback.classic" version="0.0.0"/>
@@ -10,7 +10,7 @@
       <unit id="com.google.inject" version="0.0.0"/>
       <unit id="com.google.inject.multibindings" version="0.0.0"/>
       <unit id="com.ibm.icu.base" version="0.0.0"/>
-      <unit id="javax.annotation.jre" version="0.0.0"/>
+      <unit id="javax.annotation" version="0.0.0"/>
       <unit id="javax.el" version="0.0.0"/>
       <unit id="javax.inject" version="0.0.0"/>
       <unit id="javax.servlet" version="0.0.0"/>
@@ -36,6 +36,7 @@
       <unit id="org.eclipse.core.databinding.property" version="0.0.0"/>
       <unit id="org.eclipse.core.expressions" version="0.0.0"/>
       <unit id="org.eclipse.core.filesystem" version="0.0.0"/>
+      <unit id="org.eclipse.core.jobs" version="0.0.0"/>
       <unit id="org.eclipse.core.resources" version="0.0.0"/>
       <unit id="org.eclipse.core.runtime" version="0.0.0"/>
       <unit id="org.eclipse.e4.core.commands" version="0.0.0"/>
@@ -47,7 +48,9 @@
       <unit id="org.eclipse.e4.core.services" version="0.0.0"/>
       <unit id="org.eclipse.e4.emf.xpath" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.di" version="0.0.0"/>
+      <unit id="org.eclipse.e4.ui.model.workbench" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.services" version="0.0.0"/>
+      <unit id="org.eclipse.e4.ui.workbench" version="0.0.0"/>
       <unit id="org.eclipse.ecf" version="0.0.0"/>
       <unit id="org.eclipse.ecf.core.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.ecf.core.ssl.feature.feature.group" version="0.0.0"/>
@@ -73,6 +76,7 @@
       <unit id="org.eclipse.equinox.console" version="0.0.0"/>
       <unit id="org.eclipse.equinox.ds" version="0.0.0"/>
       <unit id="org.eclipse.equinox.event" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.frameworkadmin" version="0.0.0"/>
       <unit id="org.eclipse.equinox.frameworkadmin.equinox" version="0.0.0"/>
       <unit id="org.eclipse.equinox.http.jetty" version="0.0.0"/>
@@ -81,13 +85,23 @@
       <unit id="org.eclipse.equinox.jsp.jasper" version="0.0.0"/>
       <unit id="org.eclipse.equinox.jsp.jasper.registry" version="0.0.0"/>
       <unit id="org.eclipse.equinox.launcher" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.launcher.cocoa.macosx.x86_64" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.launcher.gtk.linux.x86" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.launcher.gtk.linux.x86_64" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.launcher.win32.win32.x86" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.launcher.win32.win32.x86_64" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.artifact.repository" version="0.0.0"/>
       <unit id="org.eclipse.equinox.p2.console" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.core" version="0.0.0"/>
       <unit id="org.eclipse.equinox.p2.director" version="0.0.0"/>
       <unit id="org.eclipse.equinox.p2.engine" version="0.0.0"/>
       <unit id="org.eclipse.equinox.p2.garbagecollector" version="0.0.0"/>
       <unit id="org.eclipse.equinox.p2.jarprocessor" version="0.0.0"/>
       <unit id="org.eclipse.equinox.p2.metadata" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.metadata.repository" version="0.0.0"/>
       <unit id="org.eclipse.equinox.p2.operations" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.repository" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.p2.touchpoint.eclipse" version="0.0.0"/>
       <unit id="org.eclipse.equinox.p2.touchpoint.natives" version="0.0.0"/>
       <unit id="org.eclipse.equinox.p2.transport.ecf" version="0.0.0"/>
       <unit id="org.eclipse.equinox.preferences" version="0.0.0"/>
@@ -97,6 +111,7 @@
       <unit id="org.eclipse.equinox.security.macosx" version="0.0.0"/>
       <unit id="org.eclipse.equinox.security.win32.x86" version="0.0.0"/>
       <unit id="org.eclipse.equinox.security.win32.x86_64" version="0.0.0"/>
+      <unit id="org.eclipse.equinox.simpleconfigurator" version="0.0.0"/>
       <unit id="org.eclipse.equinox.simpleconfigurator.manipulator" version="0.0.0"/>
       <unit id="org.eclipse.equinox.util" version="0.0.0"/>
       <unit id="org.eclipse.fx.core" version="0.0.0"/>
@@ -127,6 +142,8 @@
       <unit id="org.eclipse.fx.ui.keybindings.generic" version="0.0.0"/>
       <unit id="org.eclipse.fx.ui.mobile" version="0.0.0"/>
       <unit id="org.eclipse.fx.ui.panes" version="0.0.0"/>
+      <unit id="org.eclipse.fx.ui.preferences" version="0.0.0"/>
+      <unit id="org.eclipse.fx.ui.preferences.context" version="0.0.0"/>
       <unit id="org.eclipse.fx.ui.services" version="0.0.0"/>
       <unit id="org.eclipse.fx.ui.theme" version="0.0.0"/>
       <unit id="org.eclipse.fx.ui.workbench.base" version="0.0.0"/>
@@ -134,6 +151,15 @@
       <unit id="org.eclipse.fx.ui.workbench.renderers.base" version="0.0.0"/>
       <unit id="org.eclipse.fx.ui.workbench.renderers.fx" version="0.0.0"/>
       <unit id="org.eclipse.fx.ui.workbench.services" version="0.0.0"/>
+      <unit id="org.eclipse.jdt.annotation" version="0.0.0"/>
+      <unit id="org.eclipse.jetty.continuation" version="0.0.0"/>
+      <unit id="org.eclipse.jetty.http" version="0.0.0"/>
+      <unit id="org.eclipse.jetty.io" version="0.0.0"/>
+      <unit id="org.eclipse.jetty.security" version="0.0.0"/>
+      <unit id="org.eclipse.jetty.server" version="0.0.0"/>
+      <unit id="org.eclipse.jetty.servlet" version="0.0.0"/>
+      <unit id="org.eclipse.jetty.util" version="0.0.0"/>
+      <unit id="org.eclipse.osgi" version="0.0.0"/>
       <unit id="org.eclipse.osgi.compatibility.state" version="0.0.0"/>
       <unit id="org.eclipse.osgi.services" version="0.0.0"/>
       <unit id="org.eclipse.osgi.util" version="0.0.0"/>
@@ -147,13 +173,12 @@
       <unit id="org.slf4j.jul" version="0.0.0"/>
       <unit id="org.slf4j.log4j" version="0.0.0"/>
       <unit id="org.tukaani.xz" version="0.0.0"/>
-      <repository location="http://download.eclipse.org/efxclipse/runtime-released/3.2.0/site/"/>
+      <repository location="http://download.eclipse.org/efxclipse/runtime-released/3.3.0/site/"/>
     </location>
     <location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
       <unit id="a.jre.javase" version="0.0.0"/>
       <unit id="com.google.inject.assistedinject" version="0.0.0"/>
       <unit id="com.ibm.icu" version="0.0.0"/>
-      <unit id="javax.annotation" version="0.0.0"/>
       <unit id="org.apache.ant" version="0.0.0"/>
       <unit id="org.apache.batik.css" version="0.0.0"/>
       <unit id="org.apache.batik.util" version="0.0.0"/>
@@ -162,17 +187,14 @@
       <unit id="org.apache.commons.io" version="0.0.0"/>
       <unit id="org.apache.mina.core" version="0.0.0"/>
       <unit id="org.apache.sshd.core" version="0.0.0"/>
-      <unit id="org.eclipse.core.jobs" version="0.0.0"/>
       <unit id="org.eclipse.e4.rcp.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.bindings" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.css.core" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.css.swt" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.css.swt.theme" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.dialogs" version="0.0.0"/>
-      <unit id="org.eclipse.e4.ui.model.workbench" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.swt.gtk" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.widgets" version="0.0.0"/>
-      <unit id="org.eclipse.e4.ui.workbench" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.workbench.addons.swt" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.workbench.renderers.swt" version="0.0.0"/>
       <unit id="org.eclipse.e4.ui.workbench.renderers.swt.cocoa" version="0.0.0"/>
@@ -190,7 +212,6 @@
       <unit id="org.eclipse.equinox.core.feature.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.core.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.device" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.executable.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.executable_root.cocoa.macosx.x86_64" version="0.0.0"/>
       <unit id="org.eclipse.equinox.executable_root.gtk.linux.ppc64" version="0.0.0"/>
       <unit id="org.eclipse.equinox.executable_root.gtk.linux.ppc64le" version="0.0.0"/>
@@ -201,19 +222,9 @@
       <unit id="org.eclipse.equinox.http.servletbridge" version="0.0.0"/>
       <unit id="org.eclipse.equinox.io" version="0.0.0"/>
       <unit id="org.eclipse.equinox.ip" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.launcher.cocoa.macosx.x86_64" version="0.0.0"/>
       <unit id="org.eclipse.equinox.launcher.gtk.linux.ppc64" version="0.0.0"/>
       <unit id="org.eclipse.equinox.launcher.gtk.linux.ppc64le" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.launcher.gtk.linux.x86" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.launcher.gtk.linux.x86_64" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.launcher.win32.win32.x86" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.launcher.win32.win32.x86_64" version="0.0.0"/>
       <unit id="org.eclipse.equinox.metatype" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.p2.artifact.repository" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.p2.core" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.p2.metadata.repository" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.p2.repository" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.p2.touchpoint.eclipse" version="0.0.0"/>
       <unit id="org.eclipse.equinox.region" version="0.0.0"/>
       <unit id="org.eclipse.equinox.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.security.ui" version="0.0.0"/>
@@ -222,7 +233,6 @@
       <unit id="org.eclipse.equinox.server.p2.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.serverside.sdk.feature.group" version="0.0.0"/>
       <unit id="org.eclipse.equinox.servletbridge" version="0.0.0"/>
-      <unit id="org.eclipse.equinox.simpleconfigurator" version="0.0.0"/>
       <unit id="org.eclipse.equinox.supplement" version="0.0.0"/>
       <unit id="org.eclipse.equinox.transforms.hook" version="0.0.0"/>
       <unit id="org.eclipse.equinox.transforms.xslt" version="0.0.0"/>
@@ -232,18 +242,9 @@
       <unit id="org.eclipse.equinox.weaving.hook" version="0.0.0"/>
       <unit id="org.eclipse.equinox.wireadmin" version="0.0.0"/>
       <unit id="org.eclipse.help" version="0.0.0"/>
-      <unit id="org.eclipse.jdt.annotation" version="0.0.0"/>
       <unit id="org.eclipse.jdt.junit.runtime" version="0.0.0"/>
-      <unit id="org.eclipse.jetty.continuation" version="0.0.0"/>
-      <unit id="org.eclipse.jetty.http" version="0.0.0"/>
-      <unit id="org.eclipse.jetty.io" version="0.0.0"/>
-      <unit id="org.eclipse.jetty.security" version="0.0.0"/>
-      <unit id="org.eclipse.jetty.server" version="0.0.0"/>
-      <unit id="org.eclipse.jetty.servlet" version="0.0.0"/>
-      <unit id="org.eclipse.jetty.util" version="0.0.0"/>
       <unit id="org.eclipse.jface" version="0.0.0"/>
       <unit id="org.eclipse.jface.databinding" version="0.0.0"/>
-      <unit id="org.eclipse.osgi" version="0.0.0"/>
       <unit id="org.eclipse.pde.junit.runtime" version="0.0.0"/>
       <unit id="org.eclipse.swt" version="0.0.0"/>
       <unit id="org.eclipse.swt.cocoa.macosx.x86_64" version="0.0.0"/>
